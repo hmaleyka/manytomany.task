@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\manytomany.task.props" />
+</Project>
