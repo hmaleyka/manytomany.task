@@ -76,18 +76,16 @@
                 
                 <div class="col-lg-6 pt-5 pt-lg-0">
                     <div class="single-product-content">
-                        @foreach (var item in Model.Name)
-                        {
-                        <h2 class="title">@item</h2>
-                            
-                        }
                         
-                            @* @foreach (var item in Model.Price)
-                            {
+                        <h2 class="title">@Model.Name</h2>
+                            
+                        
+                        
+                           
                                 <div class="price-box">
-                                    <span class="new-price">$@item.</span>
+                                    <span class="new-price">$@Model.Price</span>
                                 </div>
-                            } *@
+                            
                         
                         <div class="rating-box-wrap">
                             <div class="rating-box">
@@ -120,12 +118,11 @@
                                 <option value="small">Small Size With Poot</option>
                             </select>
                         </div>
-                       @foreach (var item in Model.category.Name)
-                        {
+                      
                             <p class="short-desc">
-                                @item
+                                Description: @Model.Description
                             </p>
-                        }
+                        
                         <ul class="quantity-with-btn">
                             <li class="quantity">
                                 <div class="cart-plus-minus">

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\owner\\source\\repos\\manytomany.task\\manytomany.task\\manytomany.task.csproj": {}
+    "C:\\Users\\owner\\Desktop\\manytomany.task\\manytomany.task\\manytomany.task.csproj": {}
   },
   "projects": {
-    "C:\\Users\\owner\\source\\repos\\manytomany.task\\manytomany.task\\manytomany.task.csproj": {
+    "C:\\Users\\owner\\Desktop\\manytomany.task\\manytomany.task\\manytomany.task.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\owner\\source\\repos\\manytomany.task\\manytomany.task\\manytomany.task.csproj",
+        "projectUniqueName": "C:\\Users\\owner\\Desktop\\manytomany.task\\manytomany.task\\manytomany.task.csproj",
         "projectName": "manytomany.task",
-        "projectPath": "C:\\Users\\owner\\source\\repos\\manytomany.task\\manytomany.task\\manytomany.task.csproj",
+        "projectPath": "C:\\Users\\owner\\Desktop\\manytomany.task\\manytomany.task\\manytomany.task.csproj",
         "packagesPath": "C:\\Users\\owner\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\owner\\source\\repos\\manytomany.task\\manytomany.task\\obj\\",
+        "outputPath": "C:\\Users\\owner\\Desktop\\manytomany.task\\manytomany.task\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -57,6 +57,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.14, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[6.0.16, )"
             }
           },
           "imports": [

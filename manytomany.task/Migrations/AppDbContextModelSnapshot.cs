@@ -36,7 +36,7 @@ namespace manytomany.task.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("categories");
+                    b.ToTable("categories", (string)null);
                 });
 
             modelBuilder.Entity("manytomany.task.Models.Product", b =>
@@ -69,7 +69,7 @@ namespace manytomany.task.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("products");
+                    b.ToTable("products", (string)null);
                 });
 
             modelBuilder.Entity("manytomany.task.Models.ProductImage", b =>
@@ -94,7 +94,7 @@ namespace manytomany.task.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("productsImage");
+                    b.ToTable("productsImage", (string)null);
                 });
 
             modelBuilder.Entity("manytomany.task.Models.ProductTag", b =>
@@ -117,7 +117,7 @@ namespace manytomany.task.Migrations
 
                     b.HasIndex("TagId");
 
-                    b.ToTable("tags");
+                    b.ToTable("tags", (string)null);
                 });
 
             modelBuilder.Entity("manytomany.task.Models.Tag", b =>
@@ -134,7 +134,7 @@ namespace manytomany.task.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("tagsImage");
+                    b.ToTable("tagsImage", (string)null);
                 });
 
             modelBuilder.Entity("manytomany.task.Models.Product", b =>
