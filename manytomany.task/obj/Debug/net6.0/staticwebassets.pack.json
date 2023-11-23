@@ -1,6 +1,26 @@
 {
   "Files": [
     {
+      "Id": "C:\\Users\\owner\\Desktop\\manytomany.task\\manytomany.task\\wwwroot\\Upload\\SliderImage\\04c414f7-ab95-41be-a920-e3cbc881e78dflower.jpg",
+      "PackagePath": "staticwebassets\\Upload\\SliderImage\\04c414f7-ab95-41be-a920-e3cbc881e78dflower.jpg"
+    },
+    {
+      "Id": "C:\\Users\\owner\\Desktop\\manytomany.task\\manytomany.task\\wwwroot\\Upload\\SliderImage\\3e6fd479-c41f-490e-835b-0e81830ade16theatre.jpg",
+      "PackagePath": "staticwebassets\\Upload\\SliderImage\\3e6fd479-c41f-490e-835b-0e81830ade16theatre.jpg"
+    },
+    {
+      "Id": "C:\\Users\\owner\\Desktop\\manytomany.task\\manytomany.task\\wwwroot\\Upload\\SliderImage\\422efb83-d700-409a-af4d-2e79f750fdabflower.jpg",
+      "PackagePath": "staticwebassets\\Upload\\SliderImage\\422efb83-d700-409a-af4d-2e79f750fdabflower.jpg"
+    },
+    {
+      "Id": "C:\\Users\\owner\\Desktop\\manytomany.task\\manytomany.task\\wwwroot\\Upload\\SliderImage\\4764bd65-8016-4a41-bea0-73ae25afa20781eSkgnULzL._AC_UF1000,1000_QL80_.jpg",
+      "PackagePath": "staticwebassets\\Upload\\SliderImage\\4764bd65-8016-4a41-bea0-73ae25afa20781eSkgnULzL._AC_UF1000,1000_QL80_.jpg"
+    },
+    {
+      "Id": "C:\\Users\\owner\\Desktop\\manytomany.task\\manytomany.task\\wwwroot\\Upload\\SliderImage\\ronaldo.jpg",
+      "PackagePath": "staticwebassets\\Upload\\SliderImage\\ronaldo.jpg"
+    },
+    {
       "Id": "C:\\Users\\owner\\Desktop\\manytomany.task\\manytomany.task\\wwwroot\\assets\\css\\Pe-icon-7-stroke.css",
       "PackagePath": "staticwebassets\\assets\\css\\Pe-icon-7-stroke.css"
     },

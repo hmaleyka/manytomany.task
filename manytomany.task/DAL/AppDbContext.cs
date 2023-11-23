@@ -16,5 +16,6 @@ namespace manytomany.task.DAL
         public DbSet<Category> categories { get; set; }
         public DbSet<ProductTag> tags { get; set; }
         public DbSet<Tag> tagsImage { get; set; }
+        public DbSet<Slider> sliders { get; set; }
     }
 }
