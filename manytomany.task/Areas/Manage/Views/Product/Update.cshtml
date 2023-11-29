@@ -34,6 +34,12 @@
                 </select>
                 <span asp-validation-for="CategoryId" style="color: red"></span>
             </div>
+            <div class="mb-3 col-md-3">
+                <label asp-for="TagIds" class="form-label">Tags</label>
+                <select class="form-select" asp-for="TagIds" asp-items="new SelectList(ViewBag.tags,nameof(Tag.Id),nameof(Tag.Name))">
+                </select>
+                <span asp-validation-for="TagIds" style="color: red"></span>
+            </div>
 
 
 

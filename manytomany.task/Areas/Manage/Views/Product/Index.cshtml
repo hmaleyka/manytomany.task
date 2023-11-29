@@ -2,6 +2,7 @@
 
 @{
     int count = 0;
+    int tagcount = 0;
 }
 <div class="container">
     <div class="d-flex" style="justify-content:space-between;align-items:center">
@@ -36,7 +37,11 @@
                     <td>@item.category.Name</td>
                     <td> @foreach (var pt in item.productTags)
                         {
-                            @pt.tag.Name
+                            tagcount++;
+                            @pt.tag.Name@(item.productTags.Count == tagcount ? "" : ", ")
+                        }
+                        @{
+                            tagcount = 0;
                         }
 
 

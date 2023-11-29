@@ -29,10 +29,15 @@
             <div class="mb-3 col-md-3">
                 <label asp-for="CategoryId" class="form-label">Categories</label>
                 <select class="form-select" asp-for="CategoryId" asp-items="new SelectList(ViewBag.categories,nameof(Category.Id),nameof(Category.Name))">
-                    <option selected> Open this select menu</option>
-                   
+                    <option selected> Open this select menu</option>                  
                 </select>
                 <span asp-validation-for="CategoryId" style="color: red"></span>
+            </div>
+            <div class="mb-3 col-md-3">
+                <label asp-for="TagIds" class="form-label">Tags</label>
+                <select class="form-select" asp-for="TagIds" asp-items="new SelectList(ViewBag.tags,nameof(Tag.Id),nameof(Tag.Name))">                                 
+                </select>
+                <span asp-validation-for="TagIds" style="color: red"></span>
             </div>
 
 
