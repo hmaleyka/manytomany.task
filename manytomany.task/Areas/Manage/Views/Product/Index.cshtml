@@ -35,10 +35,13 @@
                     <td>@item.SKU</td>
                     <td>@item.Price</td>
                     <td>@item.category.Name</td>
-                    <td> @foreach (var pt in item.productTags)
+                    <td>
+                        @foreach (var pt in item.productTags)
                         {
                             tagcount++;
-                            @pt.tag.Name@(item.productTags.Count == tagcount ? "" : ", ")
+                            @pt.tag.Name
+
+                            @(item.productTags.Count == tagcount ? "" : ", ")
                         }
                         @{
                             tagcount = 0;
@@ -47,7 +50,7 @@
 
 
                     </td>
-                  
+
                     <td>
                         <a class="btn btn-warning" asp-controller="Product" asp-action="Update" asp-route-id="@item.Id">Update</a>
                         <a class="btn btn-danger" asp-controller="Product" asp-action="Delete" asp-route-id="@item.Id">Delete</a>

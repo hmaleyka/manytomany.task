@@ -25,7 +25,7 @@ namespace manytomany.task.Areas.Manage.Controllers
         public async Task<IActionResult> Create()
         {
             ViewBag.categories = await _dbContext.categories.ToListAsync();
-            ViewBag.tags = await _dbContext.tagsImage.ToListAsync();
+            ViewBag.tags = await _dbContext.tag.ToListAsync();
 
             return View();
         }
@@ -34,7 +34,7 @@ namespace manytomany.task.Areas.Manage.Controllers
         public async Task<IActionResult> Create(CreateProductVM createProductvm)
         {
             ViewBag.categories = await _dbContext.categories.ToListAsync();
-            ViewBag.tags = await _dbContext.tagsImage.ToListAsync();
+            ViewBag.tags = await _dbContext.tag.ToListAsync();
             if (!ModelState.IsValid)
             {
                 return View("Error");
@@ -60,7 +60,7 @@ namespace manytomany.task.Areas.Manage.Controllers
             {
                 foreach (var tagId in createProductvm.TagIds)
                 {
-                    bool resultTag = await _dbContext.tagsImage.AnyAsync(c => c.Id == tagId);
+                    bool resultTag = await _dbContext.tag.AnyAsync(c => c.Id == tagId);
                     if (!resultTag)
                     {
                         ModelState.AddModelError("TagIds", "there is not such like tag here");
@@ -73,7 +73,7 @@ namespace manytomany.task.Areas.Manage.Controllers
                         product = product,
                         TagId = tagId
                     };
-                    _dbContext.tags.AddAsync(productTag);
+                    _dbContext.productTag.AddAsync(productTag);
 
                 }
             }
@@ -97,7 +97,7 @@ namespace manytomany.task.Areas.Manage.Controllers
                 return View("Error");
             }
             ViewBag.categories = await _dbContext.categories.ToListAsync();
-            ViewBag.tags = await _dbContext.tagsImage.ToListAsync();
+            ViewBag.tags = await _dbContext.tag.ToListAsync();
 
             UpdateProductVM updateProductVM = new UpdateProductVM()
             {
@@ -123,7 +123,7 @@ namespace manytomany.task.Areas.Manage.Controllers
         {
 
             ViewBag.categories = await _dbContext.categories.ToListAsync();
-            ViewBag.tags = await _dbContext.tagsImage.ToListAsync();
+            ViewBag.tags = await _dbContext.tag.ToListAsync();
             if (!ModelState.IsValid)
             {
                 return View();
@@ -150,7 +150,7 @@ namespace manytomany.task.Areas.Manage.Controllers
             {
                 foreach (var tagId in updateproductvm.TagIds)
                 {
-                    bool resultTag = await _dbContext.tagsImage.AnyAsync(c => c.Id == tagId);
+                    bool resultTag = await _dbContext.tag.AnyAsync(c => c.Id == tagId);
                     if (!resultTag)
                     {
                         ModelState.AddModelError("TagIds", "there is not such like tag here");
@@ -181,19 +181,19 @@ namespace manytomany.task.Areas.Manage.Controllers
                     };
                     //existproduct.productTags.Add(productTag);
 
-                    await _dbContext.tags.AddAsync(productTag);
+                    await _dbContext.productTag.AddAsync(productTag);
 
                 }
 
                 List<ProductTag> removeTag = existproduct.productTags.Where(pt => !updateproductvm.TagIds.Contains((int)pt.TagId)).ToList();
 
-                _dbContext.tags.RemoveRange(removeTag);
+                _dbContext.productTag.RemoveRange(removeTag);
 
             }
             else
             {
-                var productTagList= _dbContext.tags.Where(pt=>pt.ProductId == existproduct.Id).ToList();
-                _dbContext.tags.RemoveRange(productTagList);
+                var productTagList= _dbContext.productTag.Where(pt=>pt.ProductId == existproduct.Id).ToList();
+                _dbContext.productTag.RemoveRange(productTagList);
             
             }
 
