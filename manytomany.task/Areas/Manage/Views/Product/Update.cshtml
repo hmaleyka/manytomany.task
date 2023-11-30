@@ -41,10 +41,42 @@
                 <span asp-validation-for="TagIds" style="color: red"></span>
             </div>
 
-
-
-
         </div>
+            <div class="row">
+                <div class="mb-3" col-md-3 style="margin-right: 30px;">
+                <div style="width:100px; height:10opx">
+                    <img Width ="100%" src="~/Upload/Product/@Model.allproductImages?.FirstOrDefault(p=>p.IsPrime==true).ImgUrl" />
+                    </div>
+                    <label asp-for="mainphoto" class="form-label">mainPhoto</label>
+                    <input asp-for="mainphoto" class="form-control">
+                    <span asp-validation-for="mainphoto" style="color: red"></span>
+                </div>
+                <div class="mb-3" col-md-3 style="margin-right: 30px;">
+                <div style="width:100px; height:10opx">
+                    <img Width="100%" src="~/Upload/Product/@Model.allproductImages?.FirstOrDefault(p=>p.IsPrime==false).ImgUrl" />
+                </div>
+                    <label asp-for="hoverphoto" class="form-label">hoverPhoto</label>
+                    <input asp-for="hoverphoto" class="form-control">
+                    <span asp-validation-for="hoverphoto" style="color: red"></span>
+                </div>
+            </div>
+
+
+        <div class="row">
+            <div class="mb-3" col-2 style="margin-right: 30px;">
+                @foreach (var item in Model.allproductImages?.Where(p => p.IsPrime == null)?.ToList()) 
+                {
+                <img style="width:100%" src="~/Upload/Product/@item.ImgUrl" />
+                }
+                <label asp-for="multiplephotos" class="form-label">multipleImages</label>
+                <input asp-for="multiplephotos" class="form-control">
+                <span asp-validation-for="multiplephotos" style="color: red"></span>
+            </div>
+        </div>
+
+
+
+
 
 
         <button type="submit" class="btn btn-primary">Submit</button>

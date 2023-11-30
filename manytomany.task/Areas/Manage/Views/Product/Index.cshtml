@@ -10,7 +10,7 @@
         <a class="btn btn-primary" asp-controller="Product" asp-action="Create">Create</a>
 
     </div>
-
+    <span style="color:red">@TempData["Error"]</span>
     <table class="table">
         <thead>
             <tr>
@@ -21,6 +21,7 @@
                 <th scope="col">Price</th>
                 <th scope="col">Category</th>
                 <th scope="col">Tags</th>
+                <th scope="col">MainPhoto</th>
             </tr>
         </thead>
         <tbody>
@@ -46,9 +47,11 @@
                         @{
                             tagcount = 0;
                         }
-
-
-
+                    </td>
+                    <td>
+                        <div style="width:100px">
+                            <img width="100%" src="~/Upload/Product/@item.productImages.FirstOrDefault(p=>p.IsPrime==true)?.ImgUrl">
+                        </div>
                     </td>
 
                     <td>

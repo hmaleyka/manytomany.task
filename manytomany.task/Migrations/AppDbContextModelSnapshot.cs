@@ -85,7 +85,7 @@ namespace manytomany.task.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsPrime")
+                    b.Property<bool?>("IsPrime")
                         .HasColumnType("bit");
 
                     b.Property<int?>("ProductId")

@@ -11,6 +11,6 @@
         public Category category { get; set; }
         
         public List <ProductTag>? productTags { get; set; }
-        public List<ProductImage> productImages { get; set; }
+        public List<ProductImage>? productImages { get; set; }
     }
 }
