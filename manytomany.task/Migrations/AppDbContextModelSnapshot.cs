@@ -121,6 +121,27 @@ namespace manytomany.task.Migrations
                     b.ToTable("productTag");
                 });
 
+            modelBuilder.Entity("manytomany.task.Models.Setting", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Key")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Value")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("setting");
+                });
+
             modelBuilder.Entity("manytomany.task.Models.Slider", b =>
                 {
                     b.Property<int>("Id")
