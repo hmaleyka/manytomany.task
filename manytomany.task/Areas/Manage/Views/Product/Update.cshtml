@@ -63,25 +63,34 @@
 
 
         <div class="row">
-            <div class="mb-3" col-2 style="margin-right: 30px;">
+            @* <div class="mb-3" col-2 style="margin-right: 30px;"> *@
                 @foreach (var item in Model.allproductImages?.Where(p => p.IsPrime == null)?.ToList()) 
                 {
-                <img style="width:100%" src="~/Upload/Product/@item.ImgUrl" />
+                    <div class="col02 position-relative">
+                <img style="width:40%; height150px" src="~/Upload/Product/@item.ImgUrl" />
+                    <input type="hidden" value="@item.Id" name="ImageIds">
+                
+                <button class="btn btn-danger position-absolute custom-delete" style="right:20%;">X</button>
+            
+                    </div>              
                 }
                 <label asp-for="multiplephotos" class="form-label">multipleImages</label>
                 <input asp-for="multiplephotos" class="form-control">
                 <span asp-validation-for="multiplephotos" style="color: red"></span>
-            </div>
+            
         </div>
-
-
-
-
-
-
         <button type="submit" class="btn btn-primary">Submit</button>
-
     </form>
 
 
 </div>
+
+ <script>
+     var btn = document.querySelectorAll(".custom-delete")
+     btn.forEach(b => {
+         b.addEventListener("click", function ()
+         { 
+             b.parentElement.remove()
+         })
+     })
+ </script>

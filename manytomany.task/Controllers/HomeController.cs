@@ -16,6 +16,14 @@ namespace manytomany.task.Controllers
 
         public async Task <IActionResult> Index()
         {
+
+            //Response.Cookies.Append("Name", "Bsu", new CookieOptions()
+            //{
+            //    MaxAge = TimeSpan.FromSeconds(5)
+            //}); ;
+
+          //  HttpContext.Session.SetString("Name", "Bsu");
+
             HomeVM homevm = new HomeVM()
             {
                 sliders = await _context.sliders.ToListAsync(),

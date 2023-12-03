@@ -1,4 +1,6 @@
 using manytomany.task.DAL;
+using manytomany.task.Services;
+using Microsoft.Build.Execution;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,7 +8,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 
-
+//builder.Services.AddSession(opt=>
+//{
+//    opt.IdleTimeout=TimeSpan.FromSeconds(5);
+//});
 
 builder.Services.AddDbContext<AppDbContext>(opt =>
 {
@@ -15,7 +20,11 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
 
 });
 
+builder.Services.AddScoped<LayoutService>();
+
 var app = builder.Build();
+
+//app.UseSession();
 
 app.MapControllerRoute(
             name: "areas",

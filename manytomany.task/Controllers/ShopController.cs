@@ -18,7 +18,13 @@ namespace manytomany.task.Controllers
         public IActionResult Detail(int? id)
         {
             if (id == null) return BadRequest();
-            
+
+            //string cookie = Request.Cookies["Name"];
+            //return Content(cookie);
+
+            //string session = HttpContext.Session.GetString("Name");
+            //return Content("Name");
+
             Product product = _context.products
                 .Include(p => p.category)
                 .Include(p => p.productImages)
@@ -26,11 +32,18 @@ namespace manytomany.task.Controllers
                 .ThenInclude(pt => pt.tag)
                 .FirstOrDefault(product => product.Id == id);
 
-            if (product == null) return NotFound();
-            
+            if (product == null)
+            {
+                return NotFound();
+            }
 
+            DetailVM detailvm = new DetailVM()
+            {
+                product = product,
+                products = _context.products.Include(p=> p.productImages).Include(p=>p.category).Where(p=>p.CategoryId==product.CategoryId&&p.Id!=product.Id).ToList()
+            };
             
-            return View(product);
+            return View(detailvm);
         }
     }
 }

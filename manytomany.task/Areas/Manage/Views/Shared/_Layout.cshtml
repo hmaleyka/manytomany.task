@@ -63,14 +63,45 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                    aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
+                    <span style="font-size:23px">AllParts</span>
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Pages</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
+                        <h6 class="collapse-header">Category</h6>
+                        <a asp-controller="Category" asp-action="Index" style="font-size:23px">Category</a>
                         
                      
+                    </div>
+                </div>
+            
+            
+              
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Product</h6>
+                        <a asp-controller="Product" asp-action="Index" style="font-size:23px">Product</a>
+
+
+                    </div>
+                </div>
+            
+              
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Slider</h6>
+                        <a asp-controller="Slider" asp-action="Index" style="font-size:23px">Slider</a>
+
+
+                    </div>
+                </div>
+            
+         
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Setting</h6>
+                        <a asp-controller="Setting" asp-action="Index" style="font-size:23px">Setting</a>
+
+
                     </div>
                 </div>
             </li>

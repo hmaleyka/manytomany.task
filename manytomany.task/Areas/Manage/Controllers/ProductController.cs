@@ -3,6 +3,8 @@ using manytomany.task.Areas.Manage.ViewModels.Product;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http;
+using manytomany.task.Models;
+
 namespace manytomany.task.Areas.Manage.Controllers
 {
     [Area("Manage")]
@@ -22,7 +24,7 @@ namespace manytomany.task.Areas.Manage.Controllers
             List<Product> products = await _dbContext.products.Include(p => p.category)
                 .Include(p => p.productTags)
                 .ThenInclude(pt => pt.tag)
-                .Include(p=>p.productImages).ToListAsync();
+                .Include(p => p.productImages).ToListAsync();
             return View(products);
         }
 
@@ -57,7 +59,7 @@ namespace manytomany.task.Areas.Manage.Controllers
                 Description = createProductvm.Description,
                 SKU = createProductvm.SKU,
                 CategoryId = createProductvm.CategoryId,
-                productImages= new List<ProductImage>()
+                productImages = new List<ProductImage>()
             };
 
             if (createProductvm.TagIds != null)
@@ -82,7 +84,7 @@ namespace manytomany.task.Areas.Manage.Controllers
                 }
             }
 
-            if(!createProductvm.mainPhoto.ContentType.StartsWith("image/"))
+            if (!createProductvm.mainPhoto.ContentType.StartsWith("image/"))
             {
                 ModelState.AddModelError("mainPhoto", "you must only apply the image");
                 return View();
@@ -106,7 +108,7 @@ namespace manytomany.task.Areas.Manage.Controllers
             ProductImage mainphoto = new ProductImage()
             {
                 IsPrime = true,
-                ImgUrl=createProductvm.mainPhoto.Upload(_env.WebRootPath , @"\Upload\Product\"),
+                ImgUrl = createProductvm.mainPhoto.Upload(_env.WebRootPath, @"\Upload\Product\"),
                 product = product
             };
 
@@ -129,19 +131,19 @@ namespace manytomany.task.Areas.Manage.Controllers
                     {
                         TempData["Error"] += $"{photo.FileName} the format isn't correct \t";
                         continue;
-                        
+
                     }
                     if (photo.Length > 2097152)
                     {
                         TempData["Error"] += $"{photo.FileName} the size of picture is not in right format \t";
-                        
+
                         continue;
                     }
 
                     ProductImage multipleimage = new ProductImage()
                     {
                         IsPrime = null,
-                        ImgUrl = createProductvm.hoverPhoto.Upload(_env.WebRootPath, @"\Upload\Product\"),
+                        ImgUrl = photo.Upload(_env.WebRootPath, @"\Upload\Product\"),
                         product = product
                     };
                     product.productImages.Add(multipleimage);
@@ -162,12 +164,14 @@ namespace manytomany.task.Areas.Manage.Controllers
                 .Include(p => p.category)
                 .Include(p => p.productTags)
                 .ThenInclude(p => p.tag)
-                .Include(p=>p.productImages)
-                .Where(p => p.Id == id).FirstOrDefaultAsync();
+                .Where(p => p.Id == id)
+                .Include(p => p.productImages)
+                .FirstOrDefaultAsync();
             if (product is null)
             {
                 return View("Error");
             }
+
             ViewBag.categories = await _dbContext.categories.ToListAsync();
             ViewBag.tags = await _dbContext.tag.ToListAsync();
 
@@ -213,7 +217,7 @@ namespace manytomany.task.Areas.Manage.Controllers
             {
                 return View();
             }
-            Product existproduct = await _dbContext.products.Where(p => p.Id == updateproductvm.Id).FirstOrDefaultAsync();
+            Product existproduct = await _dbContext.products.Where(p => p.Id == updateproductvm.Id).Include(p => p.productTags).ThenInclude(p => p.tag).Include(b => b.productImages).FirstOrDefaultAsync();
             if (existproduct is null)
             {
                 return View("Error");
@@ -224,6 +228,7 @@ namespace manytomany.task.Areas.Manage.Controllers
                 ModelState.AddModelError("CategoryId", "there is not such like that category");
                 return View();
             }
+
             existproduct.Name = updateproductvm.Name;
             existproduct.Description = updateproductvm.Description;
             existproduct.Price = updateproductvm.Price;
@@ -231,7 +236,9 @@ namespace manytomany.task.Areas.Manage.Controllers
             existproduct.CategoryId = updateproductvm.CategoryId;
 
 
-            if (updateproductvm != null)
+
+
+            if (updateproductvm.TagIds != null)
             {
                 foreach (var tagId in updateproductvm.TagIds)
                 {
@@ -254,7 +261,7 @@ namespace manytomany.task.Areas.Manage.Controllers
                 }
                 else
                 {
-                    createTags=updateproductvm.TagIds.ToList();
+                    createTags = updateproductvm.TagIds.ToList();
                 }
 
                 foreach (var tagid in createTags)
@@ -277,10 +284,131 @@ namespace manytomany.task.Areas.Manage.Controllers
             }
             else
             {
-                var productTagList= _dbContext.productTag.Where(pt=>pt.ProductId == existproduct.Id).ToList();
+                var productTagList = _dbContext.productTag.Where(pt => pt.ProductId == existproduct.Id).ToList();
                 _dbContext.productTag.RemoveRange(productTagList);
-            
+
             }
+
+            TempData["Error"] = "";
+
+            if (updateproductvm.mainphoto != null)
+            {
+                if (!updateproductvm.mainphoto.ContentType.StartsWith("image/"))
+                {
+                    ModelState.AddModelError("mainPhoto", "you must only apply the image");
+                    return View();
+                }
+                if (updateproductvm.mainphoto.Length > 2097152)
+                {
+                    ModelState.AddModelError("mainPhoto", "picture should be less than 3 mb");
+                    return View();
+                }
+                //ProductImage newproductimage = new ProductImage()
+                //{
+                //    IsPrime = true,
+                //    ProductId = existproduct.Id,
+                //    ImgUrl = updateproductvm.mainphoto.Upload(_env.WebRootPath, @"\Upload\Product\")
+
+
+                //};
+                var oldPhoto = existproduct.productImages?.FirstOrDefault(p => p.IsPrime == true);
+                existproduct.productImages?.Remove(oldPhoto);
+                ProductImage newproductimage = new ProductImage()
+                {
+                    IsPrime = true,
+                    ProductId = existproduct.Id,
+                    ImgUrl = updateproductvm.mainphoto.Upload(_env.WebRootPath, @"\Upload\Product\")
+
+
+                };
+                existproduct.productImages?.Add(newproductimage);
+            }
+
+            if (updateproductvm.hoverphoto != null)
+            {
+                if (!updateproductvm.hoverphoto.ContentType.StartsWith("image/"))
+                {
+                    ModelState.AddModelError("hoverphoto", "you must only apply the image");
+                    return View();
+                }
+                if (updateproductvm.hoverphoto.Length > 2097152)
+                {
+                    ModelState.AddModelError("hoverphoto", "picture should be less than 3 mb");
+                    return View();
+                }
+                //ProductImage newhover = new ProductImage()
+                //{
+                //    IsPrime = false,
+                //    ProductId = existproduct.Id,
+                //    ImgUrl = updateproductvm.hoverphoto.Upload(_env.WebRootPath, @"\Upload\Product\")
+
+
+                //};
+                var oldPhoto = existproduct.productImages?.FirstOrDefault(p => p.IsPrime == false);
+                existproduct.productImages?.Remove(oldPhoto);
+                ProductImage newhover = new ProductImage()
+                {
+                    IsPrime = false,
+                    ProductId = existproduct.Id,
+                    ImgUrl = updateproductvm.hoverphoto.Upload(_env.WebRootPath, @"\Upload\Product\")
+
+
+                };
+                existproduct.productImages?.Add(newhover);
+            }
+            if (updateproductvm.ImageIds == null)
+            {
+                existproduct.productImages.RemoveAll(b => b.IsPrime == null);
+            }
+            else
+            {
+                var removeListImage = existproduct.productImages?.Where(p => !updateproductvm.ImageIds.Contains(p.Id) && p.IsPrime == null).ToList();
+                if (removeListImage != null)
+                {
+                    foreach (var image in removeListImage)
+                    {
+                        existproduct.productImages.Remove(image);
+                        FileManager.DeleteFile(image.ImgUrl, _env.WebRootPath, @"\Upload\Product\");
+                    }
+
+
+                }
+                else
+                {
+                    existproduct.productImages.RemoveAll(p => p.IsPrime == null);
+                }
+
+            }
+
+            if (updateproductvm.multiplephotos != null)
+            {
+                foreach (var photo in updateproductvm.multiplephotos)
+                {
+                    if (!photo.ContentType.StartsWith("image/"))
+                    {
+                        TempData["Error"] += $"{photo.FileName} the format isn't correct \t";
+                        continue;
+
+                    }
+                    if (photo.Length > 2097152)
+                    {
+                        TempData["Error"] += $"{photo.FileName} the size of picture is not in right format \t";
+
+                        continue;
+                    }
+
+                    ProductImage multipleimage = new ProductImage()
+                    {
+                       
+                        IsPrime = null,
+                        ImgUrl = photo.Upload(_env.WebRootPath, @"\Upload\Product\"),
+                        product = existproduct
+                    };
+                    existproduct.productImages?.Add(multipleimage);
+
+                }
+            }
+
 
 
 
@@ -293,6 +421,11 @@ namespace manytomany.task.Areas.Manage.Controllers
         {
 
             var product = _dbContext.products.FirstOrDefault(p => p.Id == id);
+
+            var relatedProductTag = _dbContext.productTag.Where(pt => pt.ProductId == id);
+            var relatedProductImage = _dbContext.productsImage.Where(pt => pt.ProductId == id);
+            _dbContext.productTag.RemoveRange(relatedProductTag);
+            _dbContext.productsImage.RemoveRange(relatedProductImage);
             if (product is null)
             {
                 return View("Error");

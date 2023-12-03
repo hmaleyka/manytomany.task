@@ -13,8 +13,10 @@
 
         public IFormFile? mainphoto { get; set; }
         public IFormFile? hoverphoto { get; set; }
-        public List<IFormFile> multiplephotos { get; set; }
-        public List<ProductImagesVm> allproductImages { get; set; }    
+        public List<IFormFile>? multiplephotos { get; set; }
+        public List<ProductImagesVm>? allproductImages { get; set; }    
+
+        public List<int>? ImageIds { get; set; }
     }
 
     public class ProductImagesVm

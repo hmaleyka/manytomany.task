@@ -1,4 +1,5 @@
 ﻿
+using manytomany.task.Areas.Manage.ViewModels.Product;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -25,13 +26,18 @@ namespace manytomany.task.Areas.Manage.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Setting setting)
+        public async Task<IActionResult> Create(CreateSettingVM settingvm)
         {
             if (!ModelState.IsValid)
             {
                 return View("Error");
             }
 
+            Setting setting = new Setting()
+            {
+                Key = settingvm.Key,
+                Value = settingvm.Value,
+            };
             await _db.setting.AddAsync(setting);
             await _db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
@@ -50,11 +56,26 @@ namespace manytomany.task.Areas.Manage.Controllers
         public IActionResult Update(int id)
         {
             Setting setting = _db.setting.Find(id);
-            return View(setting);
+            if (setting == null)
+            {
+                return View("Error");
+            }
+
+            UpdateSettingVM updateSettingVM = new UpdateSettingVM
+            {
+                Id = setting.Id,
+                Key = setting.Key,
+                Value = setting.Value
+            };
+
+            return View(updateSettingVM);
         }
 
+
+    
+
         [HttpPost]
-        public async Task <IActionResult> Update (Setting newSetting)
+        public async Task <IActionResult> Update (UpdateSettingVM updatevm)
         {
 
             if (!ModelState.IsValid)
@@ -62,12 +83,17 @@ namespace manytomany.task.Areas.Manage.Controllers
                 return View();
             }
 
-            
+            UpdateSettingVM setting = new UpdateSettingVM()
+            {
+                Key = updatevm.Key,
+                Value = updatevm.Value,
 
-            Setting oldSetting = await _db.setting.FindAsync(newSetting.Id);
-            oldSetting.Key = newSetting.Key;
-            oldSetting.Value = newSetting.Value;
-            
+            };
+           
+            Setting oldSetting = await _db.setting.Where(p => p.Id == updatevm.Id).FirstOrDefaultAsync();
+            oldSetting.Key = updatevm.Key;
+            oldSetting.Value = updatevm.Value;
+
 
             await _db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
