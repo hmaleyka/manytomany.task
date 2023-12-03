@@ -12,7 +12,8 @@
             {
                 <div class="swiper-slide product-item">
                     <div class="product-img">
-                        <a href="shop.html">
+                        <a asp-action="Detail" asp-controller="Shop" asp-route-id=@item.Id>
+                            @item.Name>
                             <img class="primary-img"
                                  src="~/Upload/Product/@item.productImages?.FirstOrDefault(p=>p.IsPrime==true).ImgUrl"
                                  alt="Product Images" />

@@ -1,8 +1,10 @@
-﻿namespace manytomany.task.Models
+﻿using manytomany.task.Models.Entity;
+
+namespace manytomany.task.Models
 {
-    public class Product
+    public class Product: BaseEntity
     {
-        public int Id { get; set; }
+        
         public string Name { get; set; }
         public string Description { get; set; }
         public string SKU { get; set; }

@@ -1,8 +1,12 @@
-﻿namespace manytomany.task.Models
+﻿using manytomany.task.Models.Entity;
+using System.ComponentModel.DataAnnotations;
+
+namespace manytomany.task.Models
 {
-    public class Setting
+    public class Setting : BaseEntity
     {
-        public int Id { get; set; }
+       
+        [StringLength(maximumLength: 15, ErrorMessage = "name should have 10 caharacters")]
         public string Key { get; set; }
         public string Value { get; set; }
 

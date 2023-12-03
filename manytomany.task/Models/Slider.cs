@@ -1,11 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using manytomany.task.Models.Entity;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace manytomany.task.Models
 {
-    public class Slider
+    public class Slider : BaseEntity
     {
-        public int Id { get; set; }
+        
         [Required, StringLength(25, ErrorMessage = "Length should have max 25 characters")]
         public string Title { get; set; }
         public string SubTitle { get; set; }

@@ -1,8 +1,10 @@
-﻿namespace manytomany.task.Models
+﻿using manytomany.task.Models.Entity;
+
+namespace manytomany.task.Models
 {
-    public class ProductImage
+    public class ProductImage : BaseEntity
     {
-        public int Id { get; set; }
+       
         public string ImgUrl { get; set; }
         public bool? IsPrime { get; set; }
         public int? ProductId { get; set; }
