@@ -21,7 +21,7 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
 });
 
 builder.Services.AddScoped<LayoutService>();
-
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 var app = builder.Build();
 
 //app.UseSession();
