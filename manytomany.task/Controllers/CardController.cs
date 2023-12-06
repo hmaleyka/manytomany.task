@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using NuGet.ContentModel;
+using System.Diagnostics.Metrics;
 
 namespace manytomany.task.Controllers
 {
@@ -25,7 +27,7 @@ namespace manytomany.task.Controllers
                 List<BasketCookieVM> deletedcookie = new List<BasketCookieVM>(); 
                 foreach (var item in cookieItems)
                 {
-                    Product product = _context.products.Include(p => p.productImages.Where(p => p.IsPrime == true)).FirstOrDefault(p => p.Id == item.Id);
+                    Product product = _context.products.Where(p => p.IsDeleted == false).Include(p => p.productImages.Where(p => p.IsPrime == true)).FirstOrDefault(p => p.Id == item.Id);
                    if(product==null)
                     {
                         deletedcookie.Add(item);
@@ -49,9 +51,9 @@ namespace manytomany.task.Controllers
                     {
                         cookieItems.Remove(delete);
                     }
-                    Response.Cookies.Append("Basket", JsonConvert.SerializeObject(cookieItems));
                
                 }
+                    Response.Cookies.Append("Basket", JsonConvert.SerializeObject(cookieItems));
 
             }
             return View(basketItem);
@@ -60,7 +62,7 @@ namespace manytomany.task.Controllers
         public IActionResult AddBasket(int id)
         {
             if (id <= 0) return BadRequest();
-            Product product = _context.products.FirstOrDefault(p => p.Id == id);
+            Product product = _context.products.Where(p => p.IsDeleted == false).FirstOrDefault(p => p.Id == id);
             if (product == null) return NotFound();
             List<BasketCookieVM> basket;
             var json = Request.Cookies["Basket"];
@@ -101,6 +103,56 @@ namespace manytomany.task.Controllers
 
             return RedirectToAction(nameof(Index), "Home");
         }
+        public IActionResult RemoveBasketItem(int id)
+        {
+            var cookieBasket = Request.Cookies["Basket"];
+            if(cookieBasket != null)
+            {
+                List<BasketCookieVM> basket = JsonConvert.DeserializeObject<List<BasketCookieVM>>(cookieBasket);
+                var deleteItem = basket.FirstOrDefault(p => p.Id == id);
+                if (deleteItem != null)
+                {
+                    basket.Remove(deleteItem);
+                }
+
+
+                Response.Cookies.Append("Basket", JsonConvert.SerializeObject(basket));
+                return Ok();
+            }
+            return NotFound();
+        }
+        public IActionResult IncreaseItem(int id)
+        {
+            int counter = 1;
+            var itemJson = Request.Cookies["Basket"];
+           // ViewBag.CounterItem = counter;
+            if (itemJson != null)
+            {
+                
+                List<BasketCookieVM> items = JsonConvert.DeserializeObject<List<BasketCookieVM>>(itemJson);
+
+                
+                BasketCookieVM product = items.FirstOrDefault(item => item.Id == id);
+
+                if (product != null)
+                {
+
+                    counter = product.Count;
+                    counter++;
+
+                     Response.Cookies.Append("Basket", JsonConvert.SerializeObject(items));
+                }
+                else
+                {
+                    
+                }
+            }
+
+   
+            return RedirectToAction("Index"); 
+        }
+
+
 
         public IActionResult GetBasket()
         {

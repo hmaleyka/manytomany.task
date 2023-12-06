@@ -27,7 +27,7 @@ namespace manytomany.task.Controllers
             HomeVM homevm = new HomeVM()
             {
                 sliders = await _context.sliders.ToListAsync(),
-                products = await _context.products.Include(p=>p.productImages).ToListAsync(),
+                products = await _context.products.Where(p => p.IsDeleted == false).Include(p=>p.productImages).ToListAsync(),
             };
             return View(homevm);
         }

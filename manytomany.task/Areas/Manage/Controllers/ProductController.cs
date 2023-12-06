@@ -21,7 +21,7 @@ namespace manytomany.task.Areas.Manage.Controllers
 
         public async Task<IActionResult> Index()
         {
-            List<Product> products = await _dbContext.products.Include(p => p.category)
+            List<Product> products = await _dbContext.products.Where(p => p.IsDeleted == false).Include(p => p.category)
                 .Include(p => p.productTags)
                 .ThenInclude(pt => pt.tag)
                 .Include(p => p.productImages).ToListAsync();
@@ -160,7 +160,7 @@ namespace manytomany.task.Areas.Manage.Controllers
 
         public async Task<IActionResult> Update(int id)
         {
-            Product product = await _dbContext.products
+            Product product = await _dbContext.products.Where(p => p.IsDeleted == false)
                 .Include(p => p.category)
                 .Include(p => p.productTags)
                 .ThenInclude(p => p.tag)
@@ -420,19 +420,26 @@ namespace manytomany.task.Areas.Manage.Controllers
         public IActionResult Delete(int id)
         {
 
-            var product = _dbContext.products.FirstOrDefault(p => p.Id == id);
+            var product = _dbContext.products.Where(p => p.IsDeleted == false).FirstOrDefault(p => p.Id == id);
 
-            var relatedProductTag = _dbContext.productTag.Where(pt => pt.ProductId == id);
-            var relatedProductImage = _dbContext.productsImage.Where(pt => pt.ProductId == id);
-            _dbContext.productTag.RemoveRange(relatedProductTag);
-            _dbContext.productsImage.RemoveRange(relatedProductImage);
+            //var relatedProductTag = _dbContext.productstag.               
+            //    //.Where(pt => pt.ProductId == id);
+            //var relatedProductImage = _dbContext.productsImage.Where(pt => pt.ProductId == id);
+            //_dbContext.productTag.RemoveRange(relatedProductTag);
+            //_dbContext.productsImage.RemoveRange(relatedProductImage);
             if (product is null)
             {
                 return View("Error");
             }
-            _dbContext.products.Remove(product);
+
+            product.IsDeleted = true;
             _dbContext.SaveChanges();
-            return RedirectToAction(nameof(Index));
+            return Ok();
+            // product.IsDeleted = true;
+            //// _dbContext.products.Remove(product);
+
+            // return Ok();
+            //return RedirectToAction(nameof(Index));
         }
     }
 }

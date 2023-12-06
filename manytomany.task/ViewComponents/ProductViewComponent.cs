@@ -1,4 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using manytomany.task.ViewModels;
+using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
+using static System.Net.WebRequestMethods;
 
 namespace manytomany.task.ViewComponents
 {
@@ -6,6 +9,8 @@ namespace manytomany.task.ViewComponents
     {
 
         AppDbContext _db;
+        
+
 
         public ProductViewComponent(AppDbContext db)
         {
@@ -32,5 +37,6 @@ namespace manytomany.task.ViewComponents
 
             return View(products);
         }
+        
     }
 }

@@ -1125,6 +1125,10 @@
       "PackagePath": "staticwebassets\\assets\\images\\website-images\\service.png"
     },
     {
+      "Id": "C:\\Users\\owner\\Desktop\\manytomany.task\\manytomany.task\\wwwroot\\assets\\js\\Basket.js",
+      "PackagePath": "staticwebassets\\assets\\js\\Basket.js"
+    },
+    {
       "Id": "C:\\Users\\owner\\Desktop\\manytomany.task\\manytomany.task\\wwwroot\\assets\\js\\main.js",
       "PackagePath": "staticwebassets\\assets\\js\\main.js"
     },
@@ -1363,6 +1367,10 @@
     {
       "Id": "C:\\Users\\owner\\Desktop\\manytomany.task\\manytomany.task\\wwwroot\\manage\\js\\demo\\datatables-demo.js",
       "PackagePath": "staticwebassets\\manage\\js\\demo\\datatables-demo.js"
+    },
+    {
+      "Id": "C:\\Users\\owner\\Desktop\\manytomany.task\\manytomany.task\\wwwroot\\manage\\js\\main.js",
+      "PackagePath": "staticwebassets\\manage\\js\\main.js"
     },
     {
       "Id": "C:\\Users\\owner\\Desktop\\manytomany.task\\manytomany.task\\wwwroot\\manage\\js\\sb-admin-2.js",

@@ -1,4 +1,6 @@
-﻿@using manytomany.task.ViewModels;
+﻿
+
+@using manytomany.task.ViewModels;
  @model List<BasketItemVM>
   @{
       double Total = 0;
@@ -46,8 +48,8 @@
                                     {
                                         Total += item.Price * item.Count;
                                         <tr>
-                                            <td class="product_remove">
-                                                <a href="#">
+                                            <td  class="product_remove" >
+                                                <a asp-controller="Card" asp-action="RemoveBasketItem" asp-route-id="@item.Id" class="remove-basket-item">
                                                     <i class="pe-7s-close"
                                                        data-tippy="Remove"
                                                        data-tippy-inertia="true"
@@ -60,7 +62,7 @@
                                             <td class="product-thumbnail">
                                                 <a asp-controller="Card" asp-action="AddBasket" asp-route-id="@item.Id">
                                                     <img src="~/Upload/Product/@item.ImgUrl"
-                                                         alt="Cart Thumbnail" />
+                                                         alt="Cart Thumbnail" style="width:130px" />
                                                 </a>
                                             </td>
                                             <td class="product-name">
@@ -77,9 +79,13 @@
                                                     <div class="dec qtybutton">
                                                         <i class="fa fa-minus"></i>
                                                     </div>
-                                                    <div class="inc qtybutton">
-                                                        <i class="fa fa-plus"></i>
+                                                    <div class="inc qtybutton" onclick="incrementItem()">
+                                                        <i class="fa fa-plus" id="productCount"></i>
                                                     </div>
+                                                    @* <div>
+                                                        <span id="counterValue">@ViewBag.CounterItem</span>
+                                                    </div> *@
+
                                                 </div>
                                             </td>
                                             <td class="product-subtotal">
@@ -133,4 +139,29 @@
         </div>
     </div>
 </main>
+
+<script>
+    
+    var productCount = 0;
+
+    function incrementItem() {
+        
+        productCount++;
+
+        
+        
+    }
+</script>
 <!-- Main Content Area End Here -->
+@* <script>
+    function incrementItem() {
+        $.ajax({
+            url: '@Url.Action("IncreaseItem", "Card")',
+            type: 'POST',
+            success: function (data) {
+                $('#counterValue').text(data.newCounterValue);
+            },
+        });
+    }
+
+</script> *@

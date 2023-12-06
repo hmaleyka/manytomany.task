@@ -9,6 +9,7 @@ namespace manytomany.task.Models
         public string Description { get; set; }
         public string SKU { get; set; }
         public double Price { get; set; }
+        public bool IsDeleted { get; set; }
         public int? CategoryId { get; set; }
         public Category category { get; set; }
         

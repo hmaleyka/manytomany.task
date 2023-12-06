@@ -22,45 +22,45 @@ namespace manytomany.task.Services
         }
         public async Task<List<BasketItemVM>> GetBasket()
         {
-            var jsonCookie = _http.HttpContext.Request.Cookies["Basket"];
-            List<BasketItemVM> basketItem = new List<BasketItemVM>();
+            var jsonCookie = _http?.HttpContext?.Request?.Cookies["Basket"];
+            List<BasketItemVM> basketItems = new List<BasketItemVM>();
             if (jsonCookie != null)
             {
                 var cookieItems = JsonConvert.DeserializeObject<List<BasketCookieVM>>(jsonCookie);
-                bool countcheck = false;
-                List<BasketCookieVM> deletedcookie = new List<BasketCookieVM>();
+
+                bool countCheck = false;
+                List<BasketCookieVM> deletedCookie = new List<BasketCookieVM>();
                 foreach (var item in cookieItems)
                 {
-                    Product product = await _db.products.Include(p => p.productImages.Where(p => p.IsPrime == true)).FirstOrDefaultAsync(p => p.Id == item.Id);
+                    Product product = await _db.products.Where(p => p.IsDeleted == false).Include(p => p.productImages.Where(p => p.IsPrime == true)).FirstOrDefaultAsync(p => p.Id == item.Id);
                     if (product == null)
                     {
-                        deletedcookie.Add(item);
-
-
+                        deletedCookie.Add(item);
                         continue;
                     }
 
-                    basketItem.Add(new BasketItemVM()
+                    basketItems.Add(new BasketItemVM()
                     {
                         Id = item.Id,
                         Name = product.Name,
                         Price = product.Price,
                         Count = item.Count,
-                        ImgUrl = product.productImages.FirstOrDefault().ImgUrl,
+                        ImgUrl = product.productImages.FirstOrDefault().ImgUrl
                     });
                 }
-                if (deletedcookie.Count > 0)
+                if (deletedCookie.Count > 0)
                 {
-                    foreach (var delete in deletedcookie)
+                    foreach (var delete in deletedCookie)
                     {
                         cookieItems.Remove(delete);
                     }
                     _http.HttpContext.Response.Cookies.Append("Basket", JsonConvert.SerializeObject(cookieItems));
-
                 }
 
+
+
             }
-            return basketItem;
+            return basketItems;
         }
     }
 }

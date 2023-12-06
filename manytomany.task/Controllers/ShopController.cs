@@ -26,6 +26,7 @@ namespace manytomany.task.Controllers
             //return Content("Name");
 
             Product product = _context.products
+                .Where(p => p.IsDeleted == false)
                 .Include(p => p.category)
                 .Include(p => p.productImages)
                 .Include(p => p.productTags)

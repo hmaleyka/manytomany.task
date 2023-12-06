@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "qOgRS0m8NT4393a8NStV0bYWt+fdA9aA4fys8dPFaLg=",
+  "Hash": "TY45u0/tYcHLEWg/wMx9GUPubgkJg5QQXooVOqjrrtI=",
   "Source": "manytomany.task",
   "BasePath": "_content/manytomany.task",
   "Mode": "Default",
@@ -2771,6 +2771,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\images\\website-images\\service.png"
     },
     {
+      "Identity": "C:\\Users\\owner\\Desktop\\manytomany.task\\manytomany.task\\wwwroot\\assets\\js\\Basket.js",
+      "SourceId": "manytomany.task",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\owner\\Desktop\\manytomany.task\\manytomany.task\\wwwroot\\",
+      "BasePath": "_content/manytomany.task",
+      "RelativePath": "assets/js/Basket.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\js\\Basket.js"
+    },
+    {
       "Identity": "C:\\Users\\owner\\Desktop\\manytomany.task\\manytomany.task\\wwwroot\\assets\\js\\main.js",
       "SourceId": "manytomany.task",
       "SourceType": "Discovered",
@@ -3789,6 +3806,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\manage\\js\\demo\\datatables-demo.js"
+    },
+    {
+      "Identity": "C:\\Users\\owner\\Desktop\\manytomany.task\\manytomany.task\\wwwroot\\manage\\js\\main.js",
+      "SourceId": "manytomany.task",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\owner\\Desktop\\manytomany.task\\manytomany.task\\wwwroot\\",
+      "BasePath": "_content/manytomany.task",
+      "RelativePath": "manage/js/main.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\manage\\js\\main.js"
     },
     {
       "Identity": "C:\\Users\\owner\\Desktop\\manytomany.task\\manytomany.task\\wwwroot\\manage\\js\\sb-admin-2.js",

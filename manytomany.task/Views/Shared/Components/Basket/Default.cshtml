@@ -1,0 +1,36 @@
+﻿@using manytomany.task.ViewModels;
+@model List<BasketItemVM>;
+@{
+    double Total = 0;
+}
+@foreach (var item in Model)
+{
+    Total += item.Count * item.Price;
+    <li class="minicart-product">
+        <a class="product-item_remove" href="#">
+            <i class="pe-7s-close"
+               data-tippy="Remove"
+               data-tippy-inertia="true"
+               data-tippy-animation="shift-away"
+               data-tippy-delay="50"
+               data-tippy-arrow="true"
+               data-tippy-theme="sharpborder"></i>
+        </a>
+        <a href="single-product-variable.html"
+           class="product-item_img">
+            <img class="img-full" style="width:138px"
+                 src="~/Upload/Product/@item.ImgUrl"
+                 alt="Product Image" />
+        </a>
+        <div class="product-item_content">
+            <a class="product-item_title"
+               href="single-product-variable.html" style="font-family:Impact, Haettenschweiler, 'Bold', sans-serif">@item.Name</a>
+               <br>
+            <span class="product-item_quantity">@item.Count*$@item.Price</span>
+        </div>
+    </li>
+}
+<div class="minicart-item_total">
+    <span style="font-family:Impact, Haettenschweiler, 'Bold', sans-serif">Total</span>
+    <span class="ammount" style="font-style:bold">$@Total</span>
+</div>
