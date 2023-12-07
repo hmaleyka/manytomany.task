@@ -121,36 +121,36 @@ namespace manytomany.task.Controllers
             }
             return NotFound();
         }
-        public IActionResult IncreaseItem(int id)
-        {
-            int counter = 1;
-            var itemJson = Request.Cookies["Basket"];
-           // ViewBag.CounterItem = counter;
-            if (itemJson != null)
-            {
+        //public IActionResult IncreaseItem(int id)
+        //{
+        //    int counter = 1;
+        //    var itemJson = Request.Cookies["Basket"];
+        //   // ViewBag.CounterItem = counter;
+        //    if (itemJson != null)
+        //    {
                 
-                List<BasketCookieVM> items = JsonConvert.DeserializeObject<List<BasketCookieVM>>(itemJson);
+        //        List<BasketCookieVM> items = JsonConvert.DeserializeObject<List<BasketCookieVM>>(itemJson);
 
                 
-                BasketCookieVM product = items.FirstOrDefault(item => item.Id == id);
+        //        BasketCookieVM product = items.FirstOrDefault(item => item.Id == id);
 
-                if (product != null)
-                {
+        //        if (product != null)
+        //        {
 
-                    counter = product.Count;
-                    counter++;
+        //            counter = product.Count;
+        //            counter++;
 
-                     Response.Cookies.Append("Basket", JsonConvert.SerializeObject(items));
-                }
-                else
-                {
+        //             Response.Cookies.Append("Basket", JsonConvert.SerializeObject(items));
+        //        }
+        //        else
+        //        {
                     
-                }
-            }
+        //        }
+        //    }
 
    
-            return RedirectToAction("Index"); 
-        }
+        //    return RedirectToAction("Index"); 
+        //}
 
 
 
