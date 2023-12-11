@@ -4,10 +4,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http;
 using manytomany.task.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace manytomany.task.Areas.Manage.Controllers
 {
     [Area("Manage")]
+    [Authorize]
     public class ProductController : Controller
     {
         AppDbContext _dbContext;
@@ -18,7 +20,7 @@ namespace manytomany.task.Areas.Manage.Controllers
             _dbContext = dbContext;
             _env = env;
         }
-
+        [Authorize(Roles = "Admin,Moderator")]
         public async Task<IActionResult> Index()
         {
             List<Product> products = await _dbContext.products.Where(p => p.IsDeleted == false).Include(p => p.category)
@@ -27,7 +29,7 @@ namespace manytomany.task.Areas.Manage.Controllers
                 .Include(p => p.productImages).ToListAsync();
             return View(products);
         }
-
+        [Authorize(Roles = "Admin,Moderator")]
         public async Task<IActionResult> Create()
         {
             ViewBag.categories = await _dbContext.categories.ToListAsync();
@@ -35,7 +37,7 @@ namespace manytomany.task.Areas.Manage.Controllers
 
             return View();
         }
-
+        [Authorize(Roles = "Admin,Moderator")]
         [HttpPost]
         public async Task<IActionResult> Create(CreateProductVM createProductvm)
         {
@@ -84,22 +86,22 @@ namespace manytomany.task.Areas.Manage.Controllers
                 }
             }
 
-            if (!createProductvm.mainPhoto.ContentType.StartsWith("image/"))
+            if (!createProductvm.mainPhoto.CheckType("image/"))
             {
                 ModelState.AddModelError("mainPhoto", "you must only apply the image");
                 return View();
             }
-            if (createProductvm.mainPhoto.Length > 2097152)
+            if (!createProductvm.mainPhoto.CheckLong(2097152))
             {
                 ModelState.AddModelError("mainPhoto", "picture should be less than 3 mb");
                 return View();
             }
-            if (!createProductvm.hoverPhoto.ContentType.StartsWith("image/"))
+            if (!createProductvm.hoverPhoto.CheckType("image/"))
             {
                 ModelState.AddModelError("hoverPhoto", "you must only apply the image");
                 return View();
             }
-            if (createProductvm.hoverPhoto.Length > 2097152)
+            if (!createProductvm.hoverPhoto.CheckLong(2097152))
             {
                 ModelState.AddModelError("hoverPhoto", "picture should be less than 3 mb");
                 return View();
@@ -127,13 +129,13 @@ namespace manytomany.task.Areas.Manage.Controllers
             {
                 foreach (var photo in createProductvm.multipleImages)
                 {
-                    if (!photo.ContentType.StartsWith("image/"))
+                    if (!photo.CheckType("image/"))
                     {
                         TempData["Error"] += $"{photo.FileName} the format isn't correct \t";
                         continue;
 
                     }
-                    if (photo.Length > 2097152)
+                    if (!photo.CheckLong(2097152))
                     {
                         TempData["Error"] += $"{photo.FileName} the size of picture is not in right format \t";
 
@@ -157,7 +159,7 @@ namespace manytomany.task.Areas.Manage.Controllers
             await _dbContext.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(int id)
         {
             Product product = await _dbContext.products.Where(p => p.IsDeleted == false)
@@ -206,7 +208,7 @@ namespace manytomany.task.Areas.Manage.Controllers
 
             return View(updateProductVM);
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> Update(UpdateProductVM updateproductvm)
         {
@@ -293,12 +295,12 @@ namespace manytomany.task.Areas.Manage.Controllers
 
             if (updateproductvm.mainphoto != null)
             {
-                if (!updateproductvm.mainphoto.ContentType.StartsWith("image/"))
+                if (!updateproductvm.mainphoto.CheckType("image/"))
                 {
                     ModelState.AddModelError("mainPhoto", "you must only apply the image");
                     return View();
                 }
-                if (updateproductvm.mainphoto.Length > 2097152)
+                if (!updateproductvm.mainphoto.CheckLong(2097152))
                 {
                     ModelState.AddModelError("mainPhoto", "picture should be less than 3 mb");
                     return View();
@@ -326,12 +328,12 @@ namespace manytomany.task.Areas.Manage.Controllers
 
             if (updateproductvm.hoverphoto != null)
             {
-                if (!updateproductvm.hoverphoto.ContentType.StartsWith("image/"))
+                if (!updateproductvm.hoverphoto.CheckType("image/"))
                 {
                     ModelState.AddModelError("hoverphoto", "you must only apply the image");
                     return View();
                 }
-                if (updateproductvm.hoverphoto.Length > 2097152)
+                if (!updateproductvm.hoverphoto.CheckLong(2097152))
                 {
                     ModelState.AddModelError("hoverphoto", "picture should be less than 3 mb");
                     return View();
@@ -384,13 +386,13 @@ namespace manytomany.task.Areas.Manage.Controllers
             {
                 foreach (var photo in updateproductvm.multiplephotos)
                 {
-                    if (!photo.ContentType.StartsWith("image/"))
+                    if (!photo.CheckType("image/"))
                     {
                         TempData["Error"] += $"{photo.FileName} the format isn't correct \t";
                         continue;
 
                     }
-                    if (photo.Length > 2097152)
+                    if (!photo.CheckLong(2097152))
                     {
                         TempData["Error"] += $"{photo.FileName} the size of picture is not in right format \t";
 
@@ -416,7 +418,7 @@ namespace manytomany.task.Areas.Manage.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-
+        [Authorize(Roles = "Admin")]
         public IActionResult Delete(int id)
         {
 

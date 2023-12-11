@@ -5,6 +5,14 @@ namespace manytomany.task.Helpers
 {
     public static class FileManager
     {
+        public static bool CheckLong(this IFormFile file, int length)
+        {
+            return file.Length <= length;
+        }
+        public static bool CheckType(this IFormFile file, string type)
+        {
+            return file.ContentType.Contains(type);
+        }
         public static string Upload(this IFormFile file, string envPath, string folderName)
         {
             string fileName = file.FileName;

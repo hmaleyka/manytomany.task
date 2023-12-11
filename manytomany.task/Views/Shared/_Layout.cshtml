@@ -151,7 +151,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.min.css
                                                 else
                                                 {
                                                     <li>
-                                                        <a class="dropdown-item" asp-action="LogIn" asp-controller="Account">Login</a>
+                                                        <a class="dropdown-item" asp-action="LogIn" asp-controller="Account" asp-route-ReturnUrl=@Context.Request.Path>Login</a>
                                                     </li>
                                                     <li>
                                                         <a class="dropdown-item" asp-action="Register" asp-controller="Account">Register</a>
@@ -464,12 +464,24 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.min.css
                                             </button>
                                             <ul class="dropdown-menu"
                                                 aria-labelledby="stickysettingButton">
-                                                <li>
-                                                    <a class="dropdown-item" href="my-account.html">My account</a>
-                                                </li>
-                                                <li>
-                                                    <a class="dropdown-item" href="login-register.html">Login | Register</a>
-                                                </li>
+                                                @if (User.Identity.IsAuthenticated)
+                                                {
+                                                    <li>
+                                                        <a class="dropdown-item" href="my-account.html">@User.Identity.Name</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" asp-action="LogOut" asp-controller="Account">Log out</a>
+                                                    </li>
+                                                }
+                                                else
+                                                {
+                                                    <li>
+                                                        <a class="dropdown-item" asp-action="LogIn" asp-controller="Account">Login</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" asp-action="Register" asp-controller="Account">Register</a>
+                                                    </li>
+                                                }
                                             </ul>
                                         </li>
                                         <li class="d-none d-lg-block">

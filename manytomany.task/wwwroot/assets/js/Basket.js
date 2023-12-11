@@ -5,7 +5,7 @@ deleteBtn.forEach(btn => btn.addEventListener("click", function (e) {
 
     Swal.fire({
         title: "Are you sure?",
-        text: "it will not revert again?",
+        text: "it will not revert again",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",

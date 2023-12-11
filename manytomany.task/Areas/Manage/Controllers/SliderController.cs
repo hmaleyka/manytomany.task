@@ -31,12 +31,12 @@ namespace manytomany.task.Areas.Manage.Controllers
         public async Task <IActionResult> Create(Slider slider)
         {
 
-            if(!slider.ImageFile.ContentType.Contains("image"))
+            if(!slider.ImageFile.CheckType("image"))
             {
                 ModelState.AddModelError("ImageFile" ,"you should only apply the image");
                 return View();
             }
-            if(slider.ImageFile.Length > 2097152)
+            if(!slider.ImageFile.CheckLong(2097152))
             {
                 ModelState.AddModelError("ImageFile", "The size should be max 2 MB");
                 return View();
@@ -88,12 +88,12 @@ namespace manytomany.task.Areas.Manage.Controllers
         [HttpPost]
         public async Task <IActionResult> Update(Slider newSlider)
         {
-            if (!newSlider.ImageFile.ContentType.Contains("image"))
+            if (!newSlider.ImageFile.CheckType("image"))
             {
                 ModelState.AddModelError("ImageFile", "you should only apply the image");
                 return View();
             }
-            if (newSlider.ImageFile.Length > 2097152)
+            if (!newSlider.ImageFile.CheckLong(2097152))
             {
                 ModelState.AddModelError("ImageFile", "The size should be max 2 MB");
                 return View();
