@@ -1,29 +1,30 @@
-﻿using manytomany.task.DAL;
-using manytomany.task.Models;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Pronia.Business.Services.Interfaces;
+using Pronia.Core.Models;
+using Pronia.DAL.Context;
 
-namespace manytomany.task.Areas.Manage.Controllers
+namespace Pronia.mvc.Areas.Manage.Controllers
 {
     [Area("Manage")]
-    
+
     public class CategoryController : Controller
     {
-        AppDbContext _context;
+        private readonly ICategoryService _service;
 
-        public CategoryController(AppDbContext context)
+        public CategoryController(ICategoryService service)
         {
-                _context= context;
+            _service = service;
         }
         [Authorize(Roles = "Admin,Moderator")]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            List<Category> categories=_context.categories.Include(p=>p.Products).ToList();
+            var categories = await _service.GetAllAsync();
             return View(categories);
         }
 
-        //bu get metodu olaraq gedir httpget
+
         [Authorize(Roles = "Admin,Moderator")]
         public IActionResult Create()
         {
@@ -31,47 +32,41 @@ namespace manytomany.task.Areas.Manage.Controllers
 
         }
         [Authorize(Roles = "Admin,Moderator")]
-        [HttpPost] // bu artiq post metodumdu
+        [HttpPost]
         public IActionResult Create(Category category)
         {
             if (!ModelState.IsValid)
             {
                 return View();
             }
-            _context.categories.Add(category);
-            _context.SaveChanges();          
-            return RedirectToAction("Index");           
+            _service.Create(category);
+            return RedirectToAction("Index");
         }
         [Authorize(Roles = "Admin")]
-        public IActionResult Update(int id) 
+        public async Task<IActionResult> Update(int id)
         {
-            Category category = _context.categories.Find(id);
+            var category = await _service.GetByIdAsync(id);
 
             return View(category);
-            
+
         }
         [Authorize(Roles = "Admin")]
         [HttpPost]
-        public IActionResult Update(Category newCategory)
+        public async Task<IActionResult> Update(Category newCategory)
         {
             if (!ModelState.IsValid)
             {
                 return View();
             }
 
-            Category oldcategory = _context.categories.Find(newCategory.Id);
-            oldcategory.Name= newCategory.Name;
-            
-            _context.SaveChanges();
+            await _service.Update(newCategory);
             return RedirectToAction("Index");
         }
         [Authorize(Roles = "Admin")]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-
-            Category category = _context.categories.Find(id);
-            _context.categories.Remove(category);
-            _context.SaveChanges();
+            Category categories = await _service.GetByIdAsync(id);
+            _service.Delete(categories);
 
             return RedirectToAction("Index");
         }

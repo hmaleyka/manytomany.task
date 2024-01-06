@@ -1,8 +1,13 @@
-using manytomany.task.DAL;
-using manytomany.task.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Build.Execution;
 using Microsoft.EntityFrameworkCore;
+using Pronia.Business.Services.Implementations;
+using Pronia.Business.Services.Interfaces;
+using Pronia.Core.Models;
+using Pronia.DAL.Context;
+using Pronia.DAL.Repositories.Implementations;
+using Pronia.DAL.Repositories.Interfaces;
+using Pronia.mvc.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +25,14 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
 
 
 });
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<ISliderRepository, SliderRepository>();
+builder.Services.AddScoped<ISettingRepository, SettingRepository>();
+builder.Services.AddScoped<ISliderService, SliderService>();
+builder.Services.AddScoped<ISettingService, SettingService>();
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
 {

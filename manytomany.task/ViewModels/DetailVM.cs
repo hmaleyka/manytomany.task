@@ -1,4 +1,6 @@
-﻿namespace manytomany.task.ViewModels
+﻿using Pronia.Core.Models;
+
+namespace Pronia.mvc.ViewModels
 {
     public class DetailVM
     {

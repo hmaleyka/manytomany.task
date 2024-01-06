@@ -1,9 +1,11 @@
-﻿
-using manytomany.task.Areas.Manage.ViewModels.Product;
+﻿using Pronia.mvc.Areas.Manage.ViewModels.Product;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Pronia.Core.Models;
+using Pronia.DAL.Context;
+using Pronia.mvc.Areas.Manage.ViewModels.Setting;
 
-namespace manytomany.task.Areas.Manage.Controllers
+namespace Pronia.mvc.Areas.Manage.Controllers
 {
     [Area("Manage")]
     public class SettingController : Controller
@@ -51,8 +53,6 @@ namespace manytomany.task.Areas.Manage.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
-
-
         public IActionResult Update(int id)
         {
             Setting setting = _db.setting.Find(id);
@@ -60,22 +60,16 @@ namespace manytomany.task.Areas.Manage.Controllers
             {
                 return View("Error");
             }
-
             UpdateSettingVM updateSettingVM = new UpdateSettingVM
             {
                 Id = setting.Id,
                 Key = setting.Key,
                 Value = setting.Value
             };
-
             return View(updateSettingVM);
         }
-
-
-    
-
         [HttpPost]
-        public async Task <IActionResult> Update (UpdateSettingVM updatevm)
+        public async Task<IActionResult> Update(UpdateSettingVM updatevm)
         {
 
             if (!ModelState.IsValid)
@@ -89,12 +83,10 @@ namespace manytomany.task.Areas.Manage.Controllers
                 Value = updatevm.Value,
 
             };
-           
+
             Setting oldSetting = await _db.setting.Where(p => p.Id == updatevm.Id).FirstOrDefaultAsync();
             oldSetting.Key = updatevm.Key;
             oldSetting.Value = updatevm.Value;
-
-
             await _db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

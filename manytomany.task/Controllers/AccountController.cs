@@ -1,11 +1,12 @@
-﻿using manytomany.task.ViewModels.Account;
-using manytomany.task.Helpers;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Pronia.Core.Models;
+using Pronia.Business.Helpers;
+using Pronia.mvc.ViewModels.Account;
 
-namespace manytomany.task.Controllers
+namespace Pronia.mvc.Controllers
 {
-        [AutoValidateAntiforgeryToken] //view ya gelen sorgular
+    [AutoValidateAntiforgeryToken] //view ya gelen sorgular
     public class AccountController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
@@ -24,9 +25,9 @@ namespace manytomany.task.Controllers
         }
 
         [HttpPost]
-        public async Task <IActionResult> Register(RegisterVM registervm)
+        public async Task<IActionResult> Register(RegisterVM registervm)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return View();
             }
@@ -35,11 +36,11 @@ namespace manytomany.task.Controllers
                 Name = registervm.Name,
                 Email = registervm.Email,
                 Surname = registervm.Surname,
-                UserName=registervm.Username
+                UserName = registervm.Username
             };
 
-            var result =await _userManager.CreateAsync(user, registervm.Password);
-            if(!result.Succeeded)
+            var result = await _userManager.CreateAsync(user, registervm.Password);
+            if (!result.Succeeded)
             {
                 foreach (var error in result.Errors)
                 {
@@ -56,10 +57,10 @@ namespace manytomany.task.Controllers
         public IActionResult LogIn()
         {
             return View();
-        }   
+        }
 
         [HttpPost]
-       
+
         public async Task<IActionResult> LogIn(LoginVM loginvm, string? ReturnUrl)
         {
             if (!ModelState.IsValid)
@@ -79,10 +80,10 @@ namespace manytomany.task.Controllers
                     return View();
                 }
             }
-            var result =  _signInManager.CheckPasswordSignInAsync(user, loginvm.Password, true).Result;
+            var result = _signInManager.CheckPasswordSignInAsync(user, loginvm.Password, true).Result;
             if (result.IsLockedOut)
             {
-                ModelState.AddModelError(String.Empty, "Try it after few seconds");
+                ModelState.AddModelError(string.Empty, "Try it after few seconds");
             }
             if (!result.Succeeded)
             {
@@ -91,12 +92,12 @@ namespace manytomany.task.Controllers
             }
 
             await _signInManager.SignInAsync(user, loginvm.RememberMe);
-           
-            if(ReturnUrl!= null&& !ReturnUrl.Contains("Login"))
+
+            if (ReturnUrl != null && !ReturnUrl.Contains("Login"))
             {
                 return Redirect(ReturnUrl);
             }
-            
+
             return RedirectToAction("Index", "Home");
         }
 
@@ -109,12 +110,12 @@ namespace manytomany.task.Controllers
             return RedirectToAction(nameof(Index), "Home");
         }
 
-        public async Task<IActionResult> CreateRole ()
+        public async Task<IActionResult> CreateRole()
         {
 
             foreach (UserRole item in Enum.GetValues(typeof(UserRole)))
             {
-                if(await _roleManager.FindByNameAsync(item.ToString())==null) 
+                if (await _roleManager.FindByNameAsync(item.ToString()) == null)
                 {
                     await _roleManager.CreateAsync(new IdentityRole()
                     {

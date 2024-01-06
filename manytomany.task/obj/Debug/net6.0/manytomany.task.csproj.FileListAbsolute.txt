@@ -353,3 +353,9 @@ C:\Users\owner\Desktop\manytomany.task\manytomany.task\bin\Debug\net6.0\Microsof
 C:\Users\owner\Desktop\manytomany.task\manytomany.task\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\owner\Desktop\manytomany.task\manytomany.task\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\owner\Desktop\manytomany.task\manytomany.task\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\owner\Desktop\manytomany.task\manytomany.task\bin\Debug\net6.0\Pronia.Business.dll
+C:\Users\owner\Desktop\manytomany.task\manytomany.task\bin\Debug\net6.0\Pronia.Core.dll
+C:\Users\owner\Desktop\manytomany.task\manytomany.task\bin\Debug\net6.0\Pronia.DAL.dll
+C:\Users\owner\Desktop\manytomany.task\manytomany.task\bin\Debug\net6.0\Pronia.Business.pdb
+C:\Users\owner\Desktop\manytomany.task\manytomany.task\bin\Debug\net6.0\Pronia.Core.pdb
+C:\Users\owner\Desktop\manytomany.task\manytomany.task\bin\Debug\net6.0\Pronia.DAL.pdb

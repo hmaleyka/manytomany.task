@@ -1,8 +1,10 @@
-﻿using manytomany.task.ViewModels;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using Pronia.Core.Models;
+using Pronia.DAL.Context;
+using Pronia.mvc.ViewModels;
 
-namespace manytomany.task.ViewComponents
+namespace Pronia.mvc.ViewComponents
 {
     public class BasketViewComponent : ViewComponent
     {

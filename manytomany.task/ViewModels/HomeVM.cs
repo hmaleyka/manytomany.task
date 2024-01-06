@@ -1,6 +1,6 @@
-﻿using manytomany.task.Models;
+﻿using Pronia.Core.Models;
 
-namespace manytomany.task.ViewModels
+namespace Pronia.mvc.ViewModels
 {
     public class HomeVM
     {

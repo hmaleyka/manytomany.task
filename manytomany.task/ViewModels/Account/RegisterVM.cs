@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Security.Policy;
 
-namespace manytomany.task.ViewModels.Account
+namespace Pronia.mvc.ViewModels.Account
 {
     public class RegisterVM
     {
@@ -21,7 +21,7 @@ namespace manytomany.task.ViewModels.Account
         [DataType(DataType.Password)]
         [MinLength(8)]
         public string Password { get; set; }
-        [DataType(DataType.Password),Compare(nameof(Password))]
+        [DataType(DataType.Password), Compare(nameof(Password))]
         [MinLength(8)]
         public string ConfirmPassword { get; set; }
     }

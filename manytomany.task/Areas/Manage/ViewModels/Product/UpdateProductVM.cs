@@ -1,4 +1,4 @@
-﻿namespace manytomany.task.Areas.Manage.ViewModels.Product
+﻿namespace Pronia.mvc.Areas.Manage.ViewModels.Product
 {
     public class UpdateProductVM
     {
@@ -14,7 +14,7 @@
         public IFormFile? mainphoto { get; set; }
         public IFormFile? hoverphoto { get; set; }
         public List<IFormFile>? multiplephotos { get; set; }
-        public List<ProductImagesVm>? allproductImages { get; set; }    
+        public List<ProductImagesVm>? allproductImages { get; set; }
 
         public List<int>? ImageIds { get; set; }
     }

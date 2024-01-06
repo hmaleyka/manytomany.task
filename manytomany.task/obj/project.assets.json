@@ -707,6 +707,23 @@
           }
         }
       },
+      "Microsoft.AspNetCore.Http.Features/5.0.17": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "5.0.1",
+          "System.IO.Pipelines": "5.0.2"
+        },
+        "compile": {
+          "lib/net5.0/Microsoft.AspNetCore.Http.Features.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.AspNetCore.Http.Features.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore/6.0.25": {
         "type": "package",
         "dependencies": {
@@ -2920,7 +2937,7 @@
           "lib/netstandard1.3/System.IO.FileSystem.Primitives.dll": {}
         }
       },
-      "System.IO.Pipelines/5.0.1": {
+      "System.IO.Pipelines/5.0.2": {
         "type": "package",
         "compile": {
           "ref/netcoreapp2.0/System.IO.Pipelines.dll": {
@@ -3966,6 +3983,49 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
+      },
+      "Pronia.Business/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Pronia.DAL": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Pronia.Business.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Pronia.Business.dll": {}
+        }
+      },
+      "Pronia.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Features": "5.0.17",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.25"
+        },
+        "compile": {
+          "bin/placeholder/Pronia.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Pronia.Core.dll": {}
+        }
+      },
+      "Pronia.DAL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.25",
+          "Microsoft.EntityFrameworkCore": "7.0.14",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.14",
+          "Pronia.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Pronia.DAL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Pronia.DAL.dll": {}
+        }
       }
     }
   },
@@ -4836,6 +4896,25 @@
         "lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.xml",
         "microsoft.aspnetcore.cryptography.keyderivation.6.0.25.nupkg.sha512",
         "microsoft.aspnetcore.cryptography.keyderivation.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Http.Features/5.0.17": {
+      "sha512": "3jG2xS+dx8DDCGV/F+STdPTg89lX3ao3dF/VEPvJaz3wzBIjuadipTtYNEXDIVuOPZwb6jdmhrX9jkzOIBm5cw==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.http.features/5.0.17",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.AspNetCore.Http.Features.dll",
+        "lib/net461/Microsoft.AspNetCore.Http.Features.xml",
+        "lib/net5.0/Microsoft.AspNetCore.Http.Features.dll",
+        "lib/net5.0/Microsoft.AspNetCore.Http.Features.xml",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.xml",
+        "microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
+        "microsoft.aspnetcore.http.features.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Identity.EntityFrameworkCore/6.0.25": {
@@ -8496,10 +8575,10 @@
         "system.io.filesystem.primitives.nuspec"
       ]
     },
-    "System.IO.Pipelines/5.0.1": {
-      "sha512": "qEePWsaq9LoEEIqhbGe6D5J8c9IqQOUuTzzV6wn1POlfdLkJliZY3OlB0j0f17uMWlqZYjH7txj+2YbyrIA8Yg==",
+    "System.IO.Pipelines/5.0.2": {
+      "sha512": "Iew+dfa6FFiyvWBdRmXApixRY1db+beyutpIck4SOSe0NLM8FD/7AD54MscqVLhvfSMLHO7KadjTRT7fqxOGTA==",
       "type": "package",
-      "path": "system.io.pipelines/5.0.1",
+      "path": "system.io.pipelines/5.0.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -8516,7 +8595,7 @@
         "lib/netstandard2.0/System.IO.Pipelines.xml",
         "ref/netcoreapp2.0/System.IO.Pipelines.dll",
         "ref/netcoreapp2.0/System.IO.Pipelines.xml",
-        "system.io.pipelines.5.0.1.nupkg.sha512",
+        "system.io.pipelines.5.0.2.nupkg.sha512",
         "system.io.pipelines.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
@@ -11271,6 +11350,21 @@
         "system.xml.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xdocument.nuspec"
       ]
+    },
+    "Pronia.Business/1.0.0": {
+      "type": "project",
+      "path": "../Pronia.Business/Pronia.Business.csproj",
+      "msbuildProject": "../Pronia.Business/Pronia.Business.csproj"
+    },
+    "Pronia.Core/1.0.0": {
+      "type": "project",
+      "path": "../Pronia.Core/Pronia.Core.csproj",
+      "msbuildProject": "../Pronia.Core/Pronia.Core.csproj"
+    },
+    "Pronia.DAL/1.0.0": {
+      "type": "project",
+      "path": "../Pronia.DAL/Pronia.DAL.csproj",
+      "msbuildProject": "../Pronia.DAL/Pronia.DAL.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -11279,7 +11373,8 @@
       "Microsoft.EntityFrameworkCore >= 7.0.14",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.14",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.14",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.16"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.16",
+      "Pronia.Business >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -11289,9 +11384,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\owner\\Desktop\\manytomany.task\\manytomany.task\\manytomany.task.csproj",
-      "projectName": "manytomany.task",
-      "projectPath": "C:\\Users\\owner\\Desktop\\manytomany.task\\manytomany.task\\manytomany.task.csproj",
+      "projectUniqueName": "C:\\Users\\owner\\Desktop\\manytomany.task\\manytomany.task\\Pronia.mvc.csproj",
+      "projectName": "Pronia.mvc",
+      "projectPath": "C:\\Users\\owner\\Desktop\\manytomany.task\\manytomany.task\\Pronia.mvc.csproj",
       "packagesPath": "C:\\Users\\owner\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\owner\\Desktop\\manytomany.task\\manytomany.task\\obj\\",
       "projectStyle": "PackageReference",
@@ -11313,7 +11408,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\owner\\Desktop\\manytomany.task\\Pronia.Business\\Pronia.Business.csproj": {
+              "projectPath": "C:\\Users\\owner\\Desktop\\manytomany.task\\Pronia.Business\\Pronia.Business.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

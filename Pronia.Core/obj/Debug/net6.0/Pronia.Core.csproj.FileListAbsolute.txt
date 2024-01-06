@@ -1,0 +1,12 @@
+C:\Users\owner\Desktop\manytomany.task\Pronia.Core\bin\Debug\net6.0\Pronia.Core.deps.json
+C:\Users\owner\Desktop\manytomany.task\Pronia.Core\bin\Debug\net6.0\Pronia.Core.dll
+C:\Users\owner\Desktop\manytomany.task\Pronia.Core\bin\Debug\net6.0\Pronia.Core.pdb
+C:\Users\owner\Desktop\manytomany.task\Pronia.Core\obj\Debug\net6.0\Pronia.Core.csproj.AssemblyReference.cache
+C:\Users\owner\Desktop\manytomany.task\Pronia.Core\obj\Debug\net6.0\Pronia.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\owner\Desktop\manytomany.task\Pronia.Core\obj\Debug\net6.0\Pronia.Core.AssemblyInfoInputs.cache
+C:\Users\owner\Desktop\manytomany.task\Pronia.Core\obj\Debug\net6.0\Pronia.Core.AssemblyInfo.cs
+C:\Users\owner\Desktop\manytomany.task\Pronia.Core\obj\Debug\net6.0\Pronia.Core.csproj.CoreCompileInputs.cache
+C:\Users\owner\Desktop\manytomany.task\Pronia.Core\obj\Debug\net6.0\Pronia.Core.dll
+C:\Users\owner\Desktop\manytomany.task\Pronia.Core\obj\Debug\net6.0\refint\Pronia.Core.dll
+C:\Users\owner\Desktop\manytomany.task\Pronia.Core\obj\Debug\net6.0\Pronia.Core.pdb
+C:\Users\owner\Desktop\manytomany.task\Pronia.Core\obj\Debug\net6.0\ref\Pronia.Core.dll

@@ -1,11 +1,13 @@
-﻿using manytomany.task.ViewModels;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using NuGet.ContentModel;
+using Pronia.Core.Models;
+using Pronia.DAL.Context;
+using Pronia.mvc.ViewModels;
 using System.Diagnostics.Metrics;
 
-namespace manytomany.task.Controllers
+namespace Pronia.mvc.Controllers
 {
     public class CardController : Controller
     {
@@ -20,40 +22,40 @@ namespace manytomany.task.Controllers
         {
             var jsonCookie = Request.Cookies["Basket"];
             List<BasketItemVM> basketItem = new List<BasketItemVM>();
-            if(jsonCookie != null)
+            if (jsonCookie != null)
             {
-                var cookieItems=JsonConvert.DeserializeObject<List<BasketCookieVM>>(jsonCookie);
+                var cookieItems = JsonConvert.DeserializeObject<List<BasketCookieVM>>(jsonCookie);
                 bool countcheck = false;
-                List<BasketCookieVM> deletedcookie = new List<BasketCookieVM>(); 
+                List<BasketCookieVM> deletedcookie = new List<BasketCookieVM>();
                 foreach (var item in cookieItems)
                 {
                     Product product = _context.products.Where(p => p.IsDeleted == false).Include(p => p.productImages.Where(p => p.IsPrime == true)).FirstOrDefault(p => p.Id == item.Id);
-                   if(product==null)
+                    if (product == null)
                     {
                         deletedcookie.Add(item);
-                        
+
 
                         continue;
                     }
-                    
+
                     basketItem.Add(new BasketItemVM()
                     {
                         Id = item.Id,
                         Name = product.Name,
-                        Price= product.Price,
+                        Price = product.Price,
                         Count = item.Count,
                         ImgUrl = product.productImages.FirstOrDefault().ImgUrl,
                     });
                 }
-                if (deletedcookie.Count>0)
+                if (deletedcookie.Count > 0)
                 {
                     foreach (var delete in deletedcookie)
                     {
                         cookieItems.Remove(delete);
                     }
-               
+
                 }
-                    Response.Cookies.Append("Basket", JsonConvert.SerializeObject(cookieItems));
+                Response.Cookies.Append("Basket", JsonConvert.SerializeObject(cookieItems));
 
             }
             return View(basketItem);
@@ -106,7 +108,7 @@ namespace manytomany.task.Controllers
         public IActionResult RemoveBasketItem(int id)
         {
             var cookieBasket = Request.Cookies["Basket"];
-            if(cookieBasket != null)
+            if (cookieBasket != null)
             {
                 List<BasketCookieVM> basket = JsonConvert.DeserializeObject<List<BasketCookieVM>>(cookieBasket);
                 var deleteItem = basket.FirstOrDefault(p => p.Id == id);
@@ -128,10 +130,10 @@ namespace manytomany.task.Controllers
         //   // ViewBag.CounterItem = counter;
         //    if (itemJson != null)
         //    {
-                
+
         //        List<BasketCookieVM> items = JsonConvert.DeserializeObject<List<BasketCookieVM>>(itemJson);
 
-                
+
         //        BasketCookieVM product = items.FirstOrDefault(item => item.Id == id);
 
         //        if (product != null)
@@ -144,11 +146,11 @@ namespace manytomany.task.Controllers
         //        }
         //        else
         //        {
-                    
+
         //        }
         //    }
 
-   
+
         //    return RedirectToAction("Index"); 
         //}
 

@@ -1,10 +1,12 @@
 ﻿using Azure;
 using Azure.Core;
-using manytomany.task.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using Pronia.Core.Models;
+using Pronia.DAL.Context;
+using Pronia.mvc.ViewModels;
 
-namespace manytomany.task.Services
+namespace Pronia.mvc.Services
 {
     public class LayoutService
     {

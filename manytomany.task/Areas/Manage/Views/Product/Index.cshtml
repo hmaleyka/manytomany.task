@@ -35,14 +35,27 @@
                     <td>@item.Description</td>
                     <td>@item.SKU</td>
                     <td>@item.Price</td>
-                    <td>@item.category.Name</td>
+                    <td>@item.category?.Name</td>
                     <td>
-                        @foreach (var pt in item.productTags)
-                        {
-                            tagcount++;
-                            @pt.tag.Name
+                        @*      @foreach (var pt in item?.productTags)
+                    {
+                    tagcount++;
+                    @pt.tag?.Name
 
-                            @(item.productTags.Count == tagcount ? "" : ", ")
+                    @(item.productTags.Count == tagcount ? "" : ", ")
+                    } *@
+                        @if (item?.productTags != null)
+                        {
+                            @foreach (var pt in item.productTags)
+                            {
+                                tagcount++;
+                                <text>@pt?.tag?.Name</text>
+
+                                @if (tagcount < item.productTags.Count)
+                                {
+                                    <text>, </text>
+                                }
+                            }
                         }
                         @{
                             tagcount = 0;
@@ -50,7 +63,7 @@
                     </td>
                     <td>
                         <div style="width:100px">
-                            <img width="100%" src="~/Upload/Product/@item.productImages.FirstOrDefault(p=>p.IsPrime==true)?.ImgUrl">
+                            <img width="100%" src="~/Upload/Product/@item.productImages?.FirstOrDefault(p=>p.IsPrime==true)?.ImgUrl">
                         </div>
                     </td>
 

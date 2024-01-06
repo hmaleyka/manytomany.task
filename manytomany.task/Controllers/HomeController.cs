@@ -1,9 +1,9 @@
-﻿using manytomany.task.DAL;
-using manytomany.task.ViewModels;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Pronia.DAL.Context;
+using Pronia.mvc.ViewModels;
 
-namespace manytomany.task.Controllers
+namespace Pronia.mvc.Controllers
 {
     public class HomeController : Controller
     {
@@ -14,7 +14,7 @@ namespace manytomany.task.Controllers
             _context = context;
         }
 
-        public async Task <IActionResult> Index()
+        public async Task<IActionResult> Index()
         {
 
             //Response.Cookies.Append("Name", "Bsu", new CookieOptions()
@@ -22,12 +22,12 @@ namespace manytomany.task.Controllers
             //    MaxAge = TimeSpan.FromSeconds(5)
             //}); ;
 
-          //  HttpContext.Session.SetString("Name", "Bsu");
+            //  HttpContext.Session.SetString("Name", "Bsu");
 
             HomeVM homevm = new HomeVM()
             {
                 sliders = await _context.sliders.ToListAsync(),
-                products = await _context.products.Where(p => p.IsDeleted == false).Include(p=>p.productImages).ToListAsync(),
+                products = await _context.products.Where(p => p.IsDeleted == false).Include(p => p.productImages).ToListAsync(),
             };
             return View(homevm);
         }

@@ -1,11 +1,11 @@
-﻿using manytomany.task.DAL;
-using manytomany.task.Models;
-using manytomany.task.ViewModels;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Pronia.Core.Models;
+using Pronia.DAL.Context;
+using Pronia.mvc.ViewModels;
 using System.Reflection.Metadata;
 
-namespace manytomany.task.Controllers
+namespace Pronia.mvc.Controllers
 {
     public class ShopController : Controller
     {
@@ -41,9 +41,9 @@ namespace manytomany.task.Controllers
             DetailVM detailvm = new DetailVM()
             {
                 product = product,
-                products = _context.products.Include(p=> p.productImages).Include(p=>p.category).Where(p=>p.CategoryId==product.CategoryId&&p.Id!=product.Id).ToList()
+                products = _context.products.Include(p => p.productImages).Include(p => p.category).Where(p => p.CategoryId == product.CategoryId && p.Id != product.Id).ToList()
             };
-            
+
             return View(detailvm);
         }
     }

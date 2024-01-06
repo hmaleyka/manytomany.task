@@ -1,12 +1,14 @@
-﻿
-using manytomany.task.Areas.Manage.ViewModels.Product;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http;
-using manytomany.task.Models;
 using Microsoft.AspNetCore.Authorization;
+using Pronia.Core.Models;
+using Pronia.DAL.Context;
+using Pronia.Business.Helpers;
+using Pronia.mvc.Areas.Manage.ViewModels.Product;
+using Pronia.Business.Services.Interfaces;
 
-namespace manytomany.task.Areas.Manage.Controllers
+namespace Pronia.mvc.Areas.Manage.Controllers
 {
     [Area("Manage")]
     [Authorize]
@@ -14,19 +16,18 @@ namespace manytomany.task.Areas.Manage.Controllers
     {
         AppDbContext _dbContext;
         private readonly IWebHostEnvironment _env;
+        private readonly IProductService _service;
 
-        public ProductController(AppDbContext dbContext, IWebHostEnvironment env)
+        public ProductController(AppDbContext dbContext, IWebHostEnvironment env , IProductService service)
         {
             _dbContext = dbContext;
             _env = env;
+            _service = service;
         }
         [Authorize(Roles = "Admin,Moderator")]
         public async Task<IActionResult> Index()
         {
-            List<Product> products = await _dbContext.products.Where(p => p.IsDeleted == false).Include(p => p.category)
-                .Include(p => p.productTags)
-                .ThenInclude(pt => pt.tag)
-                .Include(p => p.productImages).ToListAsync();
+           var products = await _service.GetAllAsync();
             return View(products);
         }
         [Authorize(Roles = "Admin,Moderator")]
@@ -63,6 +64,7 @@ namespace manytomany.task.Areas.Manage.Controllers
                 CategoryId = createProductvm.CategoryId,
                 productImages = new List<ProductImage>()
             };
+            //await _service.Create(createProductvm);
 
             if (createProductvm.TagIds != null)
             {
@@ -401,7 +403,7 @@ namespace manytomany.task.Areas.Manage.Controllers
 
                     ProductImage multipleimage = new ProductImage()
                     {
-                       
+
                         IsPrime = null,
                         ImgUrl = photo.Upload(_env.WebRootPath, @"\Upload\Product\"),
                         product = existproduct
