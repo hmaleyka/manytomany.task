@@ -3,16 +3,16 @@ using Pronia.Business.Services.Interfaces;
 using Pronia.Core.Models;
 using Pronia.DAL.Context;
 
-namespace Pronia.mvc.Areas.Manage.Controllers
+namespace manytomany.task.Areas.Manage.Controllers
 {
     [Area("Manage")]
     public class SliderController : Controller
     {
         private readonly IWebHostEnvironment _environment;
         private readonly ISliderService _service;
-        public SliderController( IWebHostEnvironment environment,ISliderService service)
+        public SliderController(IWebHostEnvironment environment, ISliderService service)
         {
-           
+
             _environment = environment;
             _service = service;
         }
@@ -59,7 +59,7 @@ namespace Pronia.mvc.Areas.Manage.Controllers
             }
 
             newSlider.ImgUrl = newSlider.ImageFile.Upload(_environment.WebRootPath, @"\Upload\SliderImage\");
-           await  _service.Update(newSlider);
+            await _service.Update(newSlider);
             return RedirectToAction("Index");
         }
     }

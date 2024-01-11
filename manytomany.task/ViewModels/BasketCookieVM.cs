@@ -1,4 +1,4 @@
-﻿namespace Pronia.mvc.ViewModels
+﻿namespace manytomany.task.ViewModels
 {
     public class BasketCookieVM
     {

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Http;
 
-namespace Pronia.mvc.Areas.Manage.ViewModels.Product
+namespace manytomany.task.Areas.Manage.ViewModels.Product
 {
     public class CreateProductVM
     {

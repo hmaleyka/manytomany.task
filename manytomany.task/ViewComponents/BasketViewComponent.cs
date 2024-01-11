@@ -2,9 +2,9 @@
 using Newtonsoft.Json;
 using Pronia.Core.Models;
 using Pronia.DAL.Context;
-using Pronia.mvc.ViewModels;
+using manytomany.task.ViewModels;
 
-namespace Pronia.mvc.ViewComponents
+namespace manytomany.task.ViewComponents
 {
     public class BasketViewComponent : ViewComponent
     {

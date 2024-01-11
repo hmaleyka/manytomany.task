@@ -2,10 +2,10 @@
 using Microsoft.EntityFrameworkCore;
 using Pronia.Core.Models;
 using Pronia.DAL.Context;
-using Pronia.mvc.ViewModels;
+using manytomany.task.ViewModels;
 using System.Reflection.Metadata;
 
-namespace Pronia.mvc.Controllers
+namespace manytomany.task.Controllers
 {
     public class ShopController : Controller
     {

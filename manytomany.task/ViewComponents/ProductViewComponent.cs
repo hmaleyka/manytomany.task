@@ -1,11 +1,11 @@
-﻿using Pronia.mvc.ViewModels;
+﻿using manytomany.task.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using Pronia.Core.Models;
 using Pronia.DAL.Context;
 using static System.Net.WebRequestMethods;
 
-namespace Pronia.mvc.ViewComponents
+namespace manytomany.task.ViewComponents
 {
     public class ProductViewComponent : ViewComponent
     {

@@ -1,6 +1,6 @@
 ﻿using Pronia.DAL.Context;
 
-namespace Pronia.mvc.ViewComponents
+namespace manytomany.task.ViewComponents
 {
     public class FooterViewComponent : ViewComponent
     {

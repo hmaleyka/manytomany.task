@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Security.Policy;
 
-namespace Pronia.mvc.ViewModels.Account
+namespace manytomany.task.ViewModels.Account
 {
     public class RegisterVM
     {

@@ -5,7 +5,7 @@ using Pronia.Business.Services.Interfaces;
 using Pronia.Core.Models;
 using Pronia.DAL.Context;
 
-namespace Pronia.mvc.Areas.Manage.Controllers
+namespace manytomany.task.Areas.Manage.Controllers
 {
     [Area("Manage")]
 

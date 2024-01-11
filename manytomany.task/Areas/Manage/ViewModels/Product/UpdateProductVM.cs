@@ -1,4 +1,4 @@
-﻿namespace Pronia.mvc.Areas.Manage.ViewModels.Product
+﻿namespace manytomany.task.Areas.Manage.ViewModels.Product
 {
     public class UpdateProductVM
     {

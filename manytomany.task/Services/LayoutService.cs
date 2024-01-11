@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using Pronia.Core.Models;
 using Pronia.DAL.Context;
-using Pronia.mvc.ViewModels;
+using manytomany.task.ViewModels;
 
-namespace Pronia.mvc.Services
+namespace manytomany.task.Services
 {
     public class LayoutService
     {

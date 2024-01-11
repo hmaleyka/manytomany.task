@@ -2,9 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Pronia.Core.Models;
 using Pronia.Business.Helpers;
-using Pronia.mvc.ViewModels.Account;
+using manytomany.task.ViewModels.Account;
 
-namespace Pronia.mvc.Controllers
+namespace manytomany.task.Controllers
 {
     [AutoValidateAntiforgeryToken] //view ya gelen sorgular
     public class AccountController : Controller

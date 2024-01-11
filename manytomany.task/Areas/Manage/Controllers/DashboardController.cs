@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Pronia.mvc.Areas.Manage.Controllers
+namespace manytomany.task.Areas.Manage.Controllers
 {
     [Area("Manage")]
     public class DashboardController : Controller

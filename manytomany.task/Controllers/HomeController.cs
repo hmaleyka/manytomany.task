@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Pronia.DAL.Context;
-using Pronia.mvc.ViewModels;
+using manytomany.task.ViewModels;
 
-namespace Pronia.mvc.Controllers
+namespace manytomany.task.Controllers
 {
     public class HomeController : Controller
     {

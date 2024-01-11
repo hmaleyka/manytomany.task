@@ -7,7 +7,7 @@ using Pronia.Core.Models;
 using Pronia.DAL.Context;
 using Pronia.DAL.Repositories.Implementations;
 using Pronia.DAL.Repositories.Interfaces;
-using Pronia.mvc.Services;
+using manytomany.task.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

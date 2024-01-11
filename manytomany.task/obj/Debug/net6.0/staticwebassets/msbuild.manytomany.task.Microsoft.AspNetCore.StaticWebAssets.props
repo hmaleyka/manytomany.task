@@ -33552,6 +33552,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Upload\Product\38c0cfe2-4cdd-4116-b316-0bbd903916881-3-370x300.jpg))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Upload\Product\3d83bf6c-0fd0-41ab-8466-8e883ff29714the-portal-ocean-pictures-tamarama.webp))">
+      <SourceType>Package</SourceType>
+      <SourceId>manytomany.task</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/manytomany.task</BasePath>
+      <RelativePath>Upload/Product/3d83bf6c-0fd0-41ab-8466-8e883ff29714the-portal-ocean-pictures-tamarama.webp</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Upload\Product\3d83bf6c-0fd0-41ab-8466-8e883ff29714the-portal-ocean-pictures-tamarama.webp))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Upload\Product\3f7daf26-a1d5-4eaf-a80d-781e4c9552c91--1rnu4p.png))">
       <SourceType>Package</SourceType>
       <SourceId>manytomany.task</SourceId>
@@ -33679,6 +33695,22 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Upload\Product\4cc18a1b-2523-46ab-8a30-72430d7916ab1-4-570x633.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Upload\Product\4e9d1ae5-4a1c-40b3-b705-e36fc11c518asnowdrift-and-white-sky-in-norway-1024x683.webp))">
+      <SourceType>Package</SourceType>
+      <SourceId>manytomany.task</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/manytomany.task</BasePath>
+      <RelativePath>Upload/Product/4e9d1ae5-4a1c-40b3-b705-e36fc11c518asnowdrift-and-white-sky-in-norway-1024x683.webp</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Upload\Product\4e9d1ae5-4a1c-40b3-b705-e36fc11c518asnowdrift-and-white-sky-in-norway-1024x683.webp))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Upload\Product\521b8bea-d537-4810-b655-47cd7bdccc581-3-120x120.webp))">
       <SourceType>Package</SourceType>
@@ -34416,6 +34448,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Upload\Product\a4d35fce-6257-42ee-b782-0aad4ec76ee11-1-310x220.jpg))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Upload\Product\a6039864-58bb-4130-b506-b62ac8c5dbf7photo.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>manytomany.task</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/manytomany.task</BasePath>
+      <RelativePath>Upload/Product/a6039864-58bb-4130-b506-b62ac8c5dbf7photo.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Upload\Product\a6039864-58bb-4130-b506-b62ac8c5dbf7photo.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Upload\Product\aa98574e-80ff-4522-8686-00a7fa5e391d1-3-310x220.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>manytomany.task</SourceId>
@@ -35120,6 +35168,38 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Upload\SliderImage\04c414f7-ab95-41be-a920-e3cbc881e78dflower.jpg))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Upload\SliderImage\218b196b-2893-436b-8947-1711878ff047beautiful-amazing-pictures-ce8zns6vqeh8q3gh.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>manytomany.task</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/manytomany.task</BasePath>
+      <RelativePath>Upload/SliderImage/218b196b-2893-436b-8947-1711878ff047beautiful-amazing-pictures-ce8zns6vqeh8q3gh.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Upload\SliderImage\218b196b-2893-436b-8947-1711878ff047beautiful-amazing-pictures-ce8zns6vqeh8q3gh.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Upload\SliderImage\2d9d37db-c662-4906-b460-2af73e6b99abbeautiful-amazing-pictures-ce8zns6vqeh8q3gh.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>manytomany.task</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/manytomany.task</BasePath>
+      <RelativePath>Upload/SliderImage/2d9d37db-c662-4906-b460-2af73e6b99abbeautiful-amazing-pictures-ce8zns6vqeh8q3gh.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Upload\SliderImage\2d9d37db-c662-4906-b460-2af73e6b99abbeautiful-amazing-pictures-ce8zns6vqeh8q3gh.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Upload\SliderImage\3e6fd479-c41f-490e-835b-0e81830ade16theatre.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>manytomany.task</SourceId>
@@ -35152,6 +35232,86 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Upload\SliderImage\4764bd65-8016-4a41-bea0-73ae25afa20781eSkgnULzL._AC_UF1000,1000_QL80_.jpg))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Upload\SliderImage\4b2513e7-f236-48af-9c75-5179a9408457photo.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>manytomany.task</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/manytomany.task</BasePath>
+      <RelativePath>Upload/SliderImage/4b2513e7-f236-48af-9c75-5179a9408457photo.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Upload\SliderImage\4b2513e7-f236-48af-9c75-5179a9408457photo.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Upload\SliderImage\50f8ceda-0fb9-4ff3-be64-eefd2b51f382photo.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>manytomany.task</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/manytomany.task</BasePath>
+      <RelativePath>Upload/SliderImage/50f8ceda-0fb9-4ff3-be64-eefd2b51f382photo.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Upload\SliderImage\50f8ceda-0fb9-4ff3-be64-eefd2b51f382photo.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Upload\SliderImage\6125b2f6-fb2e-4921-870d-3baaf9258104beautiful-amazing-pictures-ce8zns6vqeh8q3gh.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>manytomany.task</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/manytomany.task</BasePath>
+      <RelativePath>Upload/SliderImage/6125b2f6-fb2e-4921-870d-3baaf9258104beautiful-amazing-pictures-ce8zns6vqeh8q3gh.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Upload\SliderImage\6125b2f6-fb2e-4921-870d-3baaf9258104beautiful-amazing-pictures-ce8zns6vqeh8q3gh.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Upload\SliderImage\61fbf6df-464e-41d4-a7d8-0b261d832226the-portal-ocean-pictures-tamarama.webp))">
+      <SourceType>Package</SourceType>
+      <SourceId>manytomany.task</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/manytomany.task</BasePath>
+      <RelativePath>Upload/SliderImage/61fbf6df-464e-41d4-a7d8-0b261d832226the-portal-ocean-pictures-tamarama.webp</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Upload\SliderImage\61fbf6df-464e-41d4-a7d8-0b261d832226the-portal-ocean-pictures-tamarama.webp))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Upload\SliderImage\631dd312-5449-4969-8015-6d8bf6510d97Best-of-2016-Nasim-Mansurov-20.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>manytomany.task</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/manytomany.task</BasePath>
+      <RelativePath>Upload/SliderImage/631dd312-5449-4969-8015-6d8bf6510d97Best-of-2016-Nasim-Mansurov-20.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Upload\SliderImage\631dd312-5449-4969-8015-6d8bf6510d97Best-of-2016-Nasim-Mansurov-20.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Upload\SliderImage\7c81de52-fb5b-4ea3-b5f1-31370fe57b241-1-270x300.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>manytomany.task</SourceId>
@@ -35183,6 +35343,70 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Upload\SliderImage\97280d15-d261-430b-8ad0-7fb0305843211-3-310x220.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Upload\SliderImage\aad6c3d7-6f28-4de8-982a-e792c1c4e022Best-of-2016-Nasim-Mansurov-20.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>manytomany.task</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/manytomany.task</BasePath>
+      <RelativePath>Upload/SliderImage/aad6c3d7-6f28-4de8-982a-e792c1c4e022Best-of-2016-Nasim-Mansurov-20.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Upload\SliderImage\aad6c3d7-6f28-4de8-982a-e792c1c4e022Best-of-2016-Nasim-Mansurov-20.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Upload\SliderImage\c81917eb-12bf-4c3e-9922-1d541f7b92a8snowdrift-and-white-sky-in-norway-1024x683.webp))">
+      <SourceType>Package</SourceType>
+      <SourceId>manytomany.task</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/manytomany.task</BasePath>
+      <RelativePath>Upload/SliderImage/c81917eb-12bf-4c3e-9922-1d541f7b92a8snowdrift-and-white-sky-in-norway-1024x683.webp</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Upload\SliderImage\c81917eb-12bf-4c3e-9922-1d541f7b92a8snowdrift-and-white-sky-in-norway-1024x683.webp))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Upload\SliderImage\cfa3e79b-0b2f-4394-8c63-72760ca373a4snowdrift-and-white-sky-in-norway-1024x683.webp))">
+      <SourceType>Package</SourceType>
+      <SourceId>manytomany.task</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/manytomany.task</BasePath>
+      <RelativePath>Upload/SliderImage/cfa3e79b-0b2f-4394-8c63-72760ca373a4snowdrift-and-white-sky-in-norway-1024x683.webp</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Upload\SliderImage\cfa3e79b-0b2f-4394-8c63-72760ca373a4snowdrift-and-white-sky-in-norway-1024x683.webp))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Upload\SliderImage\efe1a672-de23-4c59-b99e-9891c44e7898Best-of-2016-Nasim-Mansurov-20.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>manytomany.task</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/manytomany.task</BasePath>
+      <RelativePath>Upload/SliderImage/efe1a672-de23-4c59-b99e-9891c44e7898Best-of-2016-Nasim-Mansurov-20.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Upload\SliderImage\efe1a672-de23-4c59-b99e-9891c44e7898Best-of-2016-Nasim-Mansurov-20.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Upload\SliderImage\ronaldo.jpg))">
       <SourceType>Package</SourceType>

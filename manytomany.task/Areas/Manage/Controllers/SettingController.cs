@@ -1,11 +1,11 @@
-﻿using Pronia.mvc.Areas.Manage.ViewModels.Product;
+﻿using manytomany.task.Areas.Manage.ViewModels.Product;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Pronia.Core.Models;
 using Pronia.DAL.Context;
-using Pronia.mvc.Areas.Manage.ViewModels.Setting;
+using manytomany.task.Areas.Manage.ViewModels.Setting;
 
-namespace Pronia.mvc.Areas.Manage.Controllers
+namespace manytomany.task.Areas.Manage.Controllers
 {
     [Area("Manage")]
     public class SettingController : Controller

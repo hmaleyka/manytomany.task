@@ -15,10 +15,10 @@
                         <a asp-action="Detail" asp-controller="Shop" asp-route-id=@item.Id>
                             @item.Name>
                             <img class="primary-img"
-                                 src="~/Upload/Product/@item.productImages?.FirstOrDefault(p=>p.IsPrime==true).ImgUrl"
+                                 src="~/Upload/Product/@item.productImages?.FirstOrDefault(p=>p.IsPrime==true)?.ImgUrl"
                                  alt="Product Images" />
                             <img class="secondary-img"
-                                 src="~/Upload/Product/@item.productImages?.FirstOrDefault(p=>p.IsPrime==false).ImgUrl"
+                                 src="~/Upload/Product/@item.productImages?.FirstOrDefault(p=>p.IsPrime==false)?.ImgUrl"
                                  alt="Product Images" />
                         </a>
                         <div class="product-add-action">

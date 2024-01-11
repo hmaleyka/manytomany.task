@@ -1,4 +1,4 @@
-﻿namespace Pronia.mvc.Areas.Manage.ViewModels.Setting
+﻿namespace manytomany.task.Areas.Manage.ViewModels.Setting
 {
     public class CreateSettingVM
     {

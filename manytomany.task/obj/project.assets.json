@@ -11384,9 +11384,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\owner\\Desktop\\manytomany.task\\manytomany.task\\Pronia.mvc.csproj",
-      "projectName": "Pronia.mvc",
-      "projectPath": "C:\\Users\\owner\\Desktop\\manytomany.task\\manytomany.task\\Pronia.mvc.csproj",
+      "projectUniqueName": "C:\\Users\\owner\\Desktop\\manytomany.task\\manytomany.task\\manytomany.task.csproj",
+      "projectName": "manytomany.task",
+      "projectPath": "C:\\Users\\owner\\Desktop\\manytomany.task\\manytomany.task\\manytomany.task.csproj",
       "packagesPath": "C:\\Users\\owner\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\owner\\Desktop\\manytomany.task\\manytomany.task\\obj\\",
       "projectStyle": "PackageReference",

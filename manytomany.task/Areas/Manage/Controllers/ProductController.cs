@@ -5,10 +5,10 @@ using Microsoft.AspNetCore.Authorization;
 using Pronia.Core.Models;
 using Pronia.DAL.Context;
 using Pronia.Business.Helpers;
-using Pronia.mvc.Areas.Manage.ViewModels.Product;
 using Pronia.Business.Services.Interfaces;
+using manytomany.task.Areas.Manage.ViewModels.Product;
 
-namespace Pronia.mvc.Areas.Manage.Controllers
+namespace manytomany.task.Areas.Manage.Controllers
 {
     [Area("Manage")]
     [Authorize]
@@ -18,7 +18,7 @@ namespace Pronia.mvc.Areas.Manage.Controllers
         private readonly IWebHostEnvironment _env;
         private readonly IProductService _service;
 
-        public ProductController(AppDbContext dbContext, IWebHostEnvironment env , IProductService service)
+        public ProductController(AppDbContext dbContext, IWebHostEnvironment env, IProductService service)
         {
             _dbContext = dbContext;
             _env = env;
@@ -27,7 +27,7 @@ namespace Pronia.mvc.Areas.Manage.Controllers
         [Authorize(Roles = "Admin,Moderator")]
         public async Task<IActionResult> Index()
         {
-           var products = await _service.GetAllAsync();
+            var products = await _service.GetAllAsync();
             return View(products);
         }
         [Authorize(Roles = "Admin,Moderator")]

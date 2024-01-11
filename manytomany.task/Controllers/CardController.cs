@@ -4,10 +4,10 @@ using Newtonsoft.Json;
 using NuGet.ContentModel;
 using Pronia.Core.Models;
 using Pronia.DAL.Context;
-using Pronia.mvc.ViewModels;
+using manytomany.task.ViewModels;
 using System.Diagnostics.Metrics;
 
-namespace Pronia.mvc.Controllers
+namespace manytomany.task.Controllers
 {
     public class CardController : Controller
     {
